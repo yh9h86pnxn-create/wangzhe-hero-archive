@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>华夏万岁 · 中国古代历代帝王名鉴与朝代演进大系</title>
+  <meta name="description" content="收录中国古代秦汉、三国魏晋、隋唐五代、两宋、大元、大明、大清历届主流帝王的高清画像传世御容、生平功过、名言典故与后世评述；纵览自上而下的华夏朝代演进长河与著名历史战役改革变法。">
+  <meta name="keywords" content="中国古代帝王,皇帝画像,朝代历史,秦始皇,汉武帝,唐太宗,宋太祖,朱元璋,康熙,朝代时间轴,历史大事件">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%239e2a2b%22/><text y=%2268%22 x=%2250%22 font-size=%2255%22 font-family=%22serif%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22%23c69234%22>帝</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==================== 顶部页眉与导航 Header ==================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <!-- 品牌 Logo -->
+      <a class="brand" href="#" id="brandLogo" title="返回首页顶部">
+        <div class="brand-seal">天子</div>
+        <div class="brand-text">
+          <span class="brand-title">华夏历代帝王名鉴</span>
+          <span class="brand-subtitle">Chinese Imperial Archive</span>
+        </div>
+      </a>
+
+      <!-- 核心主视图切换 (Tabs) -->
+      <nav class="main-nav" aria-label="主要导航">
+        <button class="nav-tab-btn active" data-view="emperors" id="tabEmperors">
+          <span class="tab-icon">👑</span>
+          <span>历代名鉴</span>
+        </button>
+        <button class="nav-tab-btn" data-view="timeline" id="tabTimeline">
+          <span class="tab-icon">📜</span>
+          <span>朝代编年史</span>
+        </button>
+        <button class="nav-tab-btn" data-view="insights" id="tabInsights">
+          <span class="tab-icon">⚖️</span>
+          <span>治世探索</span>
+        </button>
+      </nav>
+
+      <!-- 快捷工具按钮区 -->
+      <div class="header-actions">
+        <button class="action-btn" id="soundToggleBtn" title="切换宫廷琴韵氛围按键音（默认静音）">
+          <span id="soundIcon">🔇</span>
+        </button>
+        <button class="action-btn" id="quickRandomBtn" title="随机御览一位帝王圣容">
+          <span>🎲</span>
+        </button>
+        <a class="action-btn" id="githubRepoLink" href="https://github.com/yh9h86pnxn-create/chinese-emperors-archive" target="_blank" rel="noopener noreferrer" title="查看 GitHub 源代码与开源仓库">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 醒目标语与核心指标 Banner ==================== -->
+  <section class="hero-banner">
+    <div class="container">
+      <div class="hero-seal-badge">❖ 受命于天 · 既寿永昌 ❖</div>
+      <h1 class="hero-title">华夏大系 · 历代帝王名鉴与朝代年表</h1>
+      <p class="hero-desc">
+        溯源五千年华夏文明长河，汇聚秦皇汉武、唐宗宋祖至明清鼎革之正统主流帝王。
+        图文考据传世高清御容画卷，自上而下纵览朝代更迭、决定性战役与治世改革变法。
+      </p>
+
+      <!-- 快速统计面板 -->
+      <div class="quick-stats-bar">
+        <div class="stat-item">
+          <span class="stat-num" id="statEmperorsCount">--</span>
+          <span class="stat-label">收录历代主流帝王</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" id="statDynastiesCount">--</span>
+          <span class="stat-label">涵盖演进历史时期</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" id="statBattlesCount">--</span>
+          <span class="stat-label">著名历史转折战役</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" id="statReformsCount">--</span>
+          <span class="stat-label">重大政治制度变法</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 主体容器 -->
+  <main class="container">
+
+    <!-- ==================== 视图一：帝王画卷·历代名鉴 ==================== -->
+    <section class="view-section active" id="viewEmperors" aria-labelledby="tabEmperors">
+      <!-- 搜索与筛选控制面板 -->
+      <div class="archive-controls">
+        <!-- 第一行：搜索与随机 -->
+        <div class="search-row">
+          <div class="search-input-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" class="search-input" placeholder="输入帝王姓名、庙号、年号（如：嬴政、李世民、贞观、朱棣、康熙）..." autocomplete="off">
+            <button class="clear-search-btn" id="clearSearchBtn" title="清空搜索">✕</button>
+          </div>
+          <div class="control-extra-btns">
+            <button class="btn-ancient" id="randomRollBtn">
+              <span>🎲</span> 奉天承运 · 随机御览
+            </button>
+          </div>
+        </div>
+
+        <!-- 第二行：朝代分类筛选横条 (Dynasty Rail) -->
+        <div class="filter-group">
+          <div class="filter-group-title">
+            <span>🏛️</span> 按朝代谱系筛选：
+          </div>
+          <div class="dynasty-chips-wrap" id="dynastyFilterWrap">
+            <button class="dynasty-chip active" data-dynasty="all">全览万朝</button>
+            <button class="dynasty-chip" data-dynasty="qin">秦朝</button>
+            <button class="dynasty-chip" data-dynasty="xi-han">西汉</button>
+            <button class="dynasty-chip" data-dynasty="xin">新朝</button>
+            <button class="dynasty-chip" data-dynasty="dong-han">东汉</button>
+            <button class="dynasty-chip" data-dynasty="san-guo">三国</button>
+            <button class="dynasty-chip" data-dynasty="liang-jin">两晋</button>
+            <button class="dynasty-chip" data-dynasty="nan-bei-chao">南北朝</button>
+            <button class="dynasty-chip" data-dynasty="sui">隋朝</button>
+            <button class="dynasty-chip" data-dynasty="tang">盛唐·武周</button>
+            <button class="dynasty-chip" data-dynasty="wu-dai">五代十国</button>
+            <button class="dynasty-chip" data-dynasty="bei-song">北宋</button>
+            <button class="dynasty-chip" data-dynasty="nan-song">南宋</button>
+            <button class="dynasty-chip" data-dynasty="liao-jin-xia">辽·金·西夏</button>
+            <button class="dynasty-chip" data-dynasty="yuan">大元</button>
+            <button class="dynasty-chip" data-dynasty="ming">大明王朝</button>
+            <button class="dynasty-chip" data-dynasty="qing">大清帝国</button>
+          </div>
+        </div>
+
+        <!-- 第三行：特色印章属性过滤 (Tags) -->
+        <div class="filter-group" style="margin-top: 0.6rem;">
+          <div class="filter-group-title">
+            <span>🏷️</span> 特色特征印章：
+          </div>
+          <div class="tag-chips-wrap" id="tagFilterWrap">
+            <button class="tag-chip active" data-tag="all">全部特征</button>
+            <button class="tag-chip" data-tag="千古一帝">千古一帝</button>
+            <button class="tag-chip" data-tag="开国之君">开国之君</button>
+            <button class="tag-chip" data-tag="盛世明君">盛世明君 / 中兴</button>
+            <button class="tag-chip" data-tag="改革先驱">变法改制</button>
+            <button class="tag-chip" data-tag="大一统">大一统</button>
+            <button class="tag-chip" data-tag="争议">争议并存</button>
+            <button class="tag-chip" data-tag="亡国之君">悲剧 / 亡国之君</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 结果状态统计条 -->
+      <div class="results-status-bar">
+        <div class="results-count" id="resultsCount">正在载入帝王名鉴...</div>
+        <div class="results-tips">💡 点击任何帝王卡片可展开“天子诏书”全景深度生平与功过典故</div>
+      </div>
+
+      <!-- 帝王卡片瀑布流网格 -->
+      <div class="emperors-grid" id="emperorsGrid">
+        <!-- 由 app.js 动态渲染生成 -->
+      </div>
+
+      <!-- 空结果提示 -->
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <div class="empty-state-icon">📜</div>
+        <p style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">未寻得符合条件的帝王档案</p>
+        <p>可尝试精简搜索词汇，或切换为“全览万朝”朝代筛选</p>
+      </div>
+    </section>
+
+    <!-- ==================== 视图二：华夏纪年·朝代编年史 (Timeline) ==================== -->
+    <section class="view-section" id="viewTimeline" aria-labelledby="tabTimeline">
+      <div class="timeline-view-wrapper">
+        <!-- 垂直历史长河时间线 -->
+        <div class="dynasty-timeline" id="dynastyTimeline">
+          <!-- 由 app.js 动态根据 DYNASTIES_DATA 渲染生成 -->
+        </div>
+
+        <!-- 右侧悬浮朝代快速跳转电梯导航 (Timeline Elevator) -->
+        <aside class="timeline-elevator-nav" aria-label="朝代直达导航">
+          <div class="elevator-title">朝代直达电梯</div>
+          <div class="elevator-links-list" id="elevatorLinksList">
+            <!-- 由 app.js 动态渲染锚点链接 -->
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ==================== 视图三：御览天梯·数据洞察与探索 (Insights) ==================== -->
+    <section class="view-section" id="viewInsights" aria-labelledby="tabInsights">
+      <div class="insights-grid">
+        <!-- 在位时间最长榜单 -->
+        <div class="insight-box">
+          <h2 class="insight-box-title">
+            <span>⏳</span> 在位时间最长帝王天梯榜 (Top 10)
+          </h2>
+          <div class="ranking-list" id="reignRankingList">
+            <!-- 动态渲染 -->
+          </div>
+        </div>
+
+        <!-- 寿命享年最长榜单 -->
+        <div class="insight-box">
+          <h2 class="insight-box-title">
+            <span>🌿</span> 历代帝王享年寿考天梯榜 (Top 10)
+          </h2>
+          <div class="ranking-list" id="lifespanRankingList">
+            <!-- 动态渲染 -->
+          </div>
+        </div>
+
+        <!-- 随机帝王探索器卡片 -->
+        <div class="insight-box">
+          <h2 class="insight-box-title">
+            <span>👑</span> 奉天承运 · 帝王宿命抽签
+          </h2>
+          <div class="random-box-card" id="randomExploreCard">
+            <img src="" alt="" class="random-portrait-preview" id="randomCardImg" style="display: none;">
+            <div id="randomCardPlaceholder" style="width: 140px; height: 140px; border-radius: 50%; background: #eee; margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #aaa;">
+              ❖
+            </div>
+            <h3 id="randomCardTitle" style="font-family: var(--font-kaiti); font-size: 1.4rem; color: var(--c-ink); margin-bottom: 0.4rem;">点击下方令箭翻阅</h3>
+            <p id="randomCardDesc" style="font-size: 0.9rem; color: var(--c-ink-soft); margin-bottom: 1.2rem;">随机连接一位中国两千年封建历史中的天子，领略其丰功伟绩与人生跌宕。</p>
+            <button class="btn-ancient" id="drawRandomEmperorBtn" style="padding: 0.75rem 1.8rem; font-size: 1rem;">
+              <span>🎴</span> 翻开天子画卷
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== 天子诏书 · 帝王深度档案模态弹窗 Modal ==================== -->
+  <div class="modal-overlay" id="emperorModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-decree-card">
+      <!-- 弹窗顶部栏 -->
+      <div class="modal-top-bar">
+        <div class="modal-top-title" id="modalDynastyTitle">大明帝国 · 洪武年间</div>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="关闭诏书档案">✕</button>
+      </div>
+
+      <!-- 弹窗主体内容滚动区 -->
+      <div class="modal-content-scroll">
+        <!-- 左侧列：高清画像与印鉴 -->
+        <div class="modal-left-col">
+          <div class="modal-portrait-frame">
+            <img src="" alt="传世御容肖像" class="modal-portrait-img" id="modalPortraitImg">
+            <div class="portrait-fallback" id="modalPortraitFallback" style="display: none;">
+              <div class="fallback-seal" id="modalFallbackSeal">帝</div>
+              <span id="modalFallbackText" style="font-family: var(--font-kaiti); font-weight: 700; font-size: 1.1rem; color: var(--c-vermilion);">传世御容</span>
+            </div>
+          </div>
+          <div class="modal-seal-signature" id="modalSealStamp">
+            <span>❖</span> <span id="modalSealText">奉天承运皇帝诏曰</span> <span>❖</span>
+          </div>
+        </div>
+
+        <!-- 右侧列：生平、功过、名言、典故与史评 -->
+        <div class="modal-right-col">
+          <!-- 头部标题 -->
+          <div class="modal-emperor-header">
+            <h2 class="modal-emperor-title" id="modalEmperorName">明太祖 <span>朱元璋</span></h2>
+            <div class="modal-spec-grid" id="modalSpecGrid">
+              <!-- 动态填充 -->
+            </div>
+          </div>
+
+          <!-- 生平概略 -->
+          <div class="decree-block">
+            <h3 class="decree-section-title"><span>📜</span> 帝王概览</h3>
+            <p class="decree-section-p" id="modalSummary"></p>
+          </div>
+
+          <!-- 治世功绩清单 -->
+          <div class="decree-block">
+            <h3 class="decree-section-title"><span>🌟</span> 千秋功绩与治世政绩</h3>
+            <ul class="achievements-list" id="modalAchievementsList">
+              <!-- 动态填充 -->
+            </ul>
+          </div>
+
+          <!-- 历史争议与教训 -->
+          <div class="decree-block" id="modalControversiesWrap">
+            <h3 class="decree-section-title"><span>⚖️</span> 历史争议与镜鉴</h3>
+            <div class="controversy-box" id="modalControversiesBox"></div>
+          </div>
+
+          <!-- 传世名言与名篇 -->
+          <div class="decree-block" id="modalQuotesWrap">
+            <h3 class="decree-section-title"><span>💬</span> 著名名言与传世诗篇</h3>
+            <div class="quote-scroll-box" id="modalQuoteBox"></div>
+          </div>
+
+          <!-- 历史典故与成语轶事 -->
+          <div class="decree-block" id="modalAnecdotesWrap">
+            <h3 class="decree-section-title"><span>📖</span> 历史典故与著名轶事</h3>
+            <p class="decree-section-p" id="modalAnecdotes"></p>
+          </div>
+
+          <!-- 后世名家客观评述 -->
+          <div class="decree-block" id="modalEvaluationWrap">
+            <h3 class="decree-section-title"><span>🖋️</span> 后世名家历史评述</h3>
+            <p class="decree-section-p" id="modalEvaluation" style="font-style: italic; color: var(--c-ink-soft);"></p>
+          </div>
+        </div>
+      </div>
+
+        <!-- 弹窗底栏：上下位帝王切换 -->
+      <div class="modal-footer-nav">
+        <button class="modal-nav-btn" id="modalPrevBtn">
+          <span>←</span> 上一位帝王
+        </button>
+        <span style="font-size: 0.85rem; color: var(--c-ink-soft);" id="modalIndexIndicator">1 / 50</span>
+        <button class="modal-nav-btn" id="modalNextBtn">
+          下一位帝王 <span>→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 页脚 Footer ==================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-seal">❖ 天戴其苍 · 地履其黄 · 纵有千古 · 横有八荒 ❖</div>
+      <p class="footer-desc">
+        本资料库严谨参照《史记》《汉书》《三国志》《晋书》《宋书》《魏书》《隋书》《旧唐书》《新唐书》《新五代史》《宋史》《辽史》《金史》《元史》《明史》《清史稿》《资治通鉴》等中国古代二十四史及正史文献考据，肖像均采用公开传世国宝御容画像与文物标准像。
+      </p>
+
+      <div class="footer-links">
+        <a href="#siteHeader" class="footer-link">返回页面顶部</a>
+        <a href="https://github.com/yh9h86pnxn-create/chinese-emperors-archive" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub 仓库开源地址</a>
+        <a href="https://yh9h86pnxn-create.github.io/chinese-emperors-archive/" target="_blank" rel="noopener noreferrer" class="footer-link">在线访问专属网页链接</a>
+      </div>
+
+      <div class="footer-bottom-copy">
+        华夏万岁 · 中国古代历届帝王名鉴与朝代演进大系 &copy; 2026. 纯前端零依赖静态部署，支持手机、平板与电脑无障碍跨端浏览。
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button class="back-to-top-btn" id="backToTopBtn" title="返回顶部" aria-label="返回顶部">
+    <span>↑</span>
+  </button>
+
+  <!-- 引入数据库与核心应用脚本 -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

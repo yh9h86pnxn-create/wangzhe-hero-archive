@@ -3,352 +3,656 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>华夏万岁 · 中国古代历代帝王名鉴与朝代演进大系</title>
-  <meta name="description" content="收录中国古代秦汉、三国魏晋、隋唐五代、两宋、大元、大明、大清历届主流帝王的高清画像传世御容、生平功过、名言典故与后世评述；纵览自上而下的华夏朝代演进长河与著名历史战役改革变法。">
-  <meta name="keywords" content="中国古代帝王,皇帝画像,朝代历史,秦始皇,汉武帝,唐太宗,宋太祖,朱元璋,康熙,朝代时间轴,历史大事件">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%239e2a2b%22/><text y=%2268%22 x=%2250%22 font-size=%2255%22 font-family=%22serif%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22%23c69234%22>帝</text></svg>">
+  <title>MBTI 深度探索航标 · 专业情景测评与关系动力学实验室</title>
+  <meta name="description" content="比官网更细节、更真实的MBTI情景诊断与全关系动力学矩阵。包含60题深度情景测评、16型人格全景百科、16×16契合度关系大表、情侣/职场搭档专属报告生成器。">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
 </head>
-<body>
+<body class="theme-dark">
+  <!-- 顶部星空背景流动光晕 -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
 
-  <!-- ==================== 顶部页眉与导航 Header ==================== -->
-  <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <!-- 品牌 Logo -->
-      <a class="brand" href="#" id="brandLogo" title="返回首页顶部">
-        <div class="brand-seal">天子</div>
+  <!-- 顶部导航栏 -->
+  <header class="navbar" id="topNavbar">
+    <div class="nav-container">
+      <div class="nav-brand" onclick="app.switchTab('home')">
+        <span class="brand-logo">🔮</span>
         <div class="brand-text">
-          <span class="brand-title">华夏历代帝王名鉴</span>
-          <span class="brand-subtitle">Chinese Imperial Archive</span>
+          <span class="brand-title">MBTI 深度实验室</span>
+          <span class="brand-subtitle">INSIGHT & DYNAMICS LAB</span>
         </div>
-      </a>
+      </div>
 
-      <!-- 核心主视图切换 (Tabs) -->
-      <nav class="main-nav" aria-label="主要导航">
-        <button class="nav-tab-btn active" data-view="emperors" id="tabEmperors">
-          <span class="tab-icon">👑</span>
-          <span>历代名鉴</span>
+      <nav class="nav-links">
+        <button class="nav-btn active" data-tab="test" onclick="app.switchTab('test')">
+          <span class="nav-icon">🎯</span> 深度测评
         </button>
-        <button class="nav-tab-btn" data-view="timeline" id="tabTimeline">
-          <span class="tab-icon">📜</span>
-          <span>朝代编年史</span>
+        <button class="nav-btn" data-tab="encyclopedia" onclick="app.switchTab('encyclopedia')">
+          <span class="nav-icon">📖</span> 16型百科
         </button>
-        <button class="nav-tab-btn" data-view="insights" id="tabInsights">
-          <span class="tab-icon">⚖️</span>
-          <span>治世探索</span>
+        <button class="nav-btn" data-tab="matrix" onclick="app.switchTab('matrix')">
+          <span class="nav-icon">📊</span> 关系大矩阵
+        </button>
+        <button class="nav-btn" data-tab="generator" onclick="app.switchTab('generator')">
+          <span class="nav-icon">💘</span> 组合生成器
+        </button>
+        <button class="nav-btn" data-tab="comparator" onclick="app.switchTab('comparator')">
+          <span class="nav-icon">⚖️</span> 人格对比台
         </button>
       </nav>
 
-      <!-- 快捷工具按钮区 -->
-      <div class="header-actions">
-        <button class="action-btn" id="soundToggleBtn" title="切换宫廷琴韵氛围按键音（默认静音）">
-          <span id="soundIcon">🔇</span>
+      <div class="nav-actions">
+        <!-- 用户已测出的MBTI徽章快捷查看 -->
+        <button class="user-mbti-badge hidden" id="userMbtiBadge" onclick="app.showSavedResult()" title="点击查看您的测评报告">
+          <span class="badge-dot"></span>
+          <span class="badge-text" id="userMbtiText">INTJ</span>
         </button>
-        <button class="action-btn" id="quickRandomBtn" title="随机御览一位帝王圣容">
-          <span>🎲</span>
+
+        <!-- 音效开关 -->
+        <button class="icon-btn" id="soundToggleBtn" onclick="app.toggleSound()" title="开启/关闭操作音效">
+          <span id="soundIcon">🔔</span>
         </button>
-        <a class="action-btn" id="githubRepoLink" href="https://github.com/yh9h86pnxn-create/chinese-emperors-archive" target="_blank" rel="noopener noreferrer" title="查看 GitHub 源代码与开源仓库">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-        </a>
+
+        <!-- 亮暗模式切换 -->
+        <button class="icon-btn" id="themeToggleBtn" onclick="app.toggleTheme()" title="切换明亮/暗黑主题">
+          <span id="themeIcon">🌙</span>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- ==================== 醒目标语与核心指标 Banner ==================== -->
-  <section class="hero-banner">
-    <div class="container">
-      <div class="hero-seal-badge">❖ 受命于天 · 既寿永昌 ❖</div>
-      <h1 class="hero-title">华夏大系 · 历代帝王名鉴与朝代年表</h1>
-      <p class="hero-desc">
-        溯源五千年华夏文明长河，汇聚秦皇汉武、唐宗宋祖至明清鼎革之正统主流帝王。
-        图文考据传世高清御容画卷，自上而下纵览朝代更迭、决定性战役与治世改革变法。
-      </p>
+  <!-- 页面主体容器 -->
+  <main class="main-content">
+    
+    <!-- ==================== HOME / HERO 模块 ==================== -->
+    <section class="section-container active" id="sec-home">
+      <div class="hero-card">
+        <div class="hero-badge">✨ 告别假大空 · 深入荣格认知底层与现实细节</div>
+        <h1 class="hero-title">
+          探索真实的自我与人际化学反应
+        </h1>
+        <p class="hero-desc">
+          比传统官网测评更具细节与现实情景推演。深度诊断 <strong>4大倾向维度</strong> 与 <strong>8大认知功能栈</strong>，
+          解析16型人格的闪光点、致命盲区与黑化自救，解锁 <strong>16×16 全关系矩阵</strong> 与 <strong>情侣/搭档深度动力学报告</strong>。
+        </p>
 
-      <!-- 快速统计面板 -->
-      <div class="quick-stats-bar">
-        <div class="stat-item">
-          <span class="stat-num" id="statEmperorsCount">--</span>
-          <span class="stat-label">收录历代主流帝王</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" id="statDynastiesCount">--</span>
-          <span class="stat-label">涵盖演进历史时期</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" id="statBattlesCount">--</span>
-          <span class="stat-label">著名历史转折战役</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-num" id="statReformsCount">--</span>
-          <span class="stat-label">重大政治制度变法</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 主体容器 -->
-  <main class="container">
-
-    <!-- ==================== 视图一：帝王画卷·历代名鉴 ==================== -->
-    <section class="view-section active" id="viewEmperors" aria-labelledby="tabEmperors">
-      <!-- 搜索与筛选控制面板 -->
-      <div class="archive-controls">
-        <!-- 第一行：搜索与随机 -->
-        <div class="search-row">
-          <div class="search-input-wrap">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" class="search-input" placeholder="输入帝王姓名、庙号、年号（如：嬴政、李世民、贞观、朱棣、康熙）..." autocomplete="off">
-            <button class="clear-search-btn" id="clearSearchBtn" title="清空搜索">✕</button>
+        <div class="hero-stats">
+          <div class="stat-pill">
+            <span class="stat-num">60+</span>
+            <span class="stat-label">真实情境推演题</span>
           </div>
-          <div class="control-extra-btns">
-            <button class="btn-ancient" id="randomRollBtn">
-              <span>🎲</span> 奉天承运 · 随机御览
-            </button>
+          <div class="stat-pill">
+            <span class="stat-num">16</span>
+            <span class="stat-label">全维度深度档案</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-num">256</span>
+            <span class="stat-label">双人关系契合全解析</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-num">5</span>
+            <span class="stat-label">情侣/搭档场景动力学</span>
           </div>
         </div>
 
-        <!-- 第二行：朝代分类筛选横条 (Dynasty Rail) -->
-        <div class="filter-group">
-          <div class="filter-group-title">
-            <span>🏛️</span> 按朝代谱系筛选：
-          </div>
-          <div class="dynasty-chips-wrap" id="dynastyFilterWrap">
-            <button class="dynasty-chip active" data-dynasty="all">全览万朝</button>
-            <button class="dynasty-chip" data-dynasty="qin">秦朝</button>
-            <button class="dynasty-chip" data-dynasty="xi-han">西汉</button>
-            <button class="dynasty-chip" data-dynasty="xin">新朝</button>
-            <button class="dynasty-chip" data-dynasty="dong-han">东汉</button>
-            <button class="dynasty-chip" data-dynasty="san-guo">三国</button>
-            <button class="dynasty-chip" data-dynasty="liang-jin">两晋</button>
-            <button class="dynasty-chip" data-dynasty="nan-bei-chao">南北朝</button>
-            <button class="dynasty-chip" data-dynasty="sui">隋朝</button>
-            <button class="dynasty-chip" data-dynasty="tang">盛唐·武周</button>
-            <button class="dynasty-chip" data-dynasty="wu-dai">五代十国</button>
-            <button class="dynasty-chip" data-dynasty="bei-song">北宋</button>
-            <button class="dynasty-chip" data-dynasty="nan-song">南宋</button>
-            <button class="dynasty-chip" data-dynasty="liao-jin-xia">辽·金·西夏</button>
-            <button class="dynasty-chip" data-dynasty="yuan">大元</button>
-            <button class="dynasty-chip" data-dynasty="ming">大明王朝</button>
-            <button class="dynasty-chip" data-dynasty="qing">大清帝国</button>
-          </div>
-        </div>
-
-        <!-- 第三行：特色印章属性过滤 (Tags) -->
-        <div class="filter-group" style="margin-top: 0.6rem;">
-          <div class="filter-group-title">
-            <span>🏷️</span> 特色特征印章：
-          </div>
-          <div class="tag-chips-wrap" id="tagFilterWrap">
-            <button class="tag-chip active" data-tag="all">全部特征</button>
-            <button class="tag-chip" data-tag="千古一帝">千古一帝</button>
-            <button class="tag-chip" data-tag="开国之君">开国之君</button>
-            <button class="tag-chip" data-tag="盛世明君">盛世明君 / 中兴</button>
-            <button class="tag-chip" data-tag="改革先驱">变法改制</button>
-            <button class="tag-chip" data-tag="大一统">大一统</button>
-            <button class="tag-chip" data-tag="争议">争议并存</button>
-            <button class="tag-chip" data-tag="亡国之君">悲剧 / 亡国之君</button>
-          </div>
+        <div class="hero-cta-group">
+          <button class="btn btn-primary btn-large glow-btn" onclick="app.switchTab('test')">
+            <span class="btn-icon">🚀</span> 立即开始专业测评
+          </button>
+          <button class="btn btn-secondary btn-large" onclick="app.switchTab('matrix')">
+            <span class="btn-icon">📊</span> 查阅 16×16 关系大矩阵
+          </button>
+          <button class="btn btn-glass btn-large" onclick="app.switchTab('generator')">
+            <span class="btn-icon">💘</span> 测算两人关系组合
+          </button>
         </div>
       </div>
 
-      <!-- 结果状态统计条 -->
-      <div class="results-status-bar">
-        <div class="results-count" id="resultsCount">正在载入帝王名鉴...</div>
-        <div class="results-tips">💡 点击任何帝王卡片可展开“天子诏书”全景深度生平与功过典故</div>
-      </div>
-
-      <!-- 帝王卡片瀑布流网格 -->
-      <div class="emperors-grid" id="emperorsGrid">
-        <!-- 由 app.js 动态渲染生成 -->
-      </div>
-
-      <!-- 空结果提示 -->
-      <div class="empty-state" id="emptyState" style="display: none;">
-        <div class="empty-state-icon">📜</div>
-        <p style="font-size: 1.2rem; font-weight: 700; margin-bottom: 0.5rem;">未寻得符合条件的帝王档案</p>
-        <p>可尝试精简搜索词汇，或切换为“全览万朝”朝代筛选</p>
-      </div>
-    </section>
-
-    <!-- ==================== 视图二：华夏纪年·朝代编年史 (Timeline) ==================== -->
-    <section class="view-section" id="viewTimeline" aria-labelledby="tabTimeline">
-      <div class="timeline-view-wrapper">
-        <!-- 垂直历史长河时间线 -->
-        <div class="dynasty-timeline" id="dynastyTimeline">
-          <!-- 由 app.js 动态根据 DYNASTIES_DATA 渲染生成 -->
-        </div>
-
-        <!-- 右侧悬浮朝代快速跳转电梯导航 (Timeline Elevator) -->
-        <aside class="timeline-elevator-nav" aria-label="朝代直达导航">
-          <div class="elevator-title">朝代直达电梯</div>
-          <div class="elevator-links-list" id="elevatorLinksList">
-            <!-- 由 app.js 动态渲染锚点链接 -->
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ==================== 视图三：御览天梯·数据洞察与探索 (Insights) ==================== -->
-    <section class="view-section" id="viewInsights" aria-labelledby="tabInsights">
-      <div class="insights-grid">
-        <!-- 在位时间最长榜单 -->
-        <div class="insight-box">
-          <h2 class="insight-box-title">
-            <span>⏳</span> 在位时间最长帝王天梯榜 (Top 10)
-          </h2>
-          <div class="ranking-list" id="reignRankingList">
-            <!-- 动态渲染 -->
-          </div>
-        </div>
-
-        <!-- 寿命享年最长榜单 -->
-        <div class="insight-box">
-          <h2 class="insight-box-title">
-            <span>🌿</span> 历代帝王享年寿考天梯榜 (Top 10)
-          </h2>
-          <div class="ranking-list" id="lifespanRankingList">
-            <!-- 动态渲染 -->
-          </div>
-        </div>
-
-        <!-- 随机帝王探索器卡片 -->
-        <div class="insight-box">
-          <h2 class="insight-box-title">
-            <span>👑</span> 奉天承运 · 帝王宿命抽签
-          </h2>
-          <div class="random-box-card" id="randomExploreCard">
-            <img src="" alt="" class="random-portrait-preview" id="randomCardImg" style="display: none;">
-            <div id="randomCardPlaceholder" style="width: 140px; height: 140px; border-radius: 50%; background: #eee; margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #aaa;">
-              ❖
+      <!-- 四天气质分类快速总览 -->
+      <div class="temperament-overview">
+        <h2 class="sub-heading">四大性格气质家族</h2>
+        <div class="temperament-grid">
+          <div class="temp-card nt-card" onclick="app.filterEncyclopedia('NT')">
+            <div class="temp-header">
+              <span class="temp-icon">🔮</span>
+              <span class="temp-tag">NT 理性者 / 分析家</span>
             </div>
-            <h3 id="randomCardTitle" style="font-family: var(--font-kaiti); font-size: 1.4rem; color: var(--c-ink); margin-bottom: 0.4rem;">点击下方令箭翻阅</h3>
-            <p id="randomCardDesc" style="font-size: 0.9rem; color: var(--c-ink-soft); margin-bottom: 1.2rem;">随机连接一位中国两千年封建历史中的天子，领略其丰功伟绩与人生跌宕。</p>
-            <button class="btn-ancient" id="drawRandomEmperorBtn" style="padding: 0.75rem 1.8rem; font-size: 1rem;">
-              <span>🎴</span> 翻开天子画卷
+            <h3>战略架构与真理求索</h3>
+            <p>INTJ · INTP · ENTJ · ENTP</p>
+            <div class="temp-footer">探索本质规律，解构复杂系统与战略推演 →</div>
+          </div>
+
+          <div class="temp-card nf-card" onclick="app.filterEncyclopedia('NF')">
+            <div class="temp-header">
+              <span class="temp-icon">🌿</span>
+              <span class="temp-tag">NF 理想国 / 外交家</span>
+            </div>
+            <h3>精神共鸣与灵魂唤醒</h3>
+            <p>INFJ · INFP · ENFJ · ENFP</p>
+            <div class="temp-footer">探寻生命意义，恪守良知信念与人本关怀 →</div>
+          </div>
+
+          <div class="temp-card sj-card" onclick="app.filterEncyclopedia('SJ')">
+            <div class="temp-header">
+              <span class="temp-icon">🛡️</span>
+              <span class="temp-tag">SJ 守卫者 / 秩序者</span>
+            </div>
+            <h3>定海神针与尽职担当</h3>
+            <p>ISTJ · ISFJ · ESTJ · ESFJ</p>
+            <div class="temp-footer">筑牢社会基石，恪守契约承诺与稳健流程 →</div>
+          </div>
+
+          <div class="temp-card sp-card" onclick="app.filterEncyclopedia('SP')">
+            <div class="temp-header">
+              <span class="temp-icon">⚡</span>
+              <span class="temp-tag">SP 探险家 / 破局者</span>
+            </div>
+            <h3>现场狂飙与极致手艺</h3>
+            <p>ISTP · ISFP · ESTP · ESFP</p>
+            <div class="temp-footer">活在当下物理体验，现场危机敏锐破局 →</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 1. 深度测评模块 ==================== -->
+    <section class="section-container" id="sec-test">
+      <!-- 测评前：模式选择器 -->
+      <div class="test-intro-box" id="testIntroBox">
+        <div class="section-header">
+          <span class="section-kicker">ASSESSMENT ENGINE</span>
+          <h2 class="section-title">选择适合您的测评模式</h2>
+          <p class="section-subtitle">
+            摒弃模棱两可的抽象套话，我们基于职场决策、压力情境、人际摩擦等具体现实推演，帮您精准锁定真实的人格底色。
+          </p>
+        </div>
+
+        <div class="test-modes-grid">
+          <!-- 模式1：深度情景推演版 -->
+          <div class="mode-card featured" onclick="app.startTest('detailed')">
+            <div class="mode-badge">🌟 强烈推荐 · 最深入透彻</div>
+            <div class="mode-icon">🎯</div>
+            <h3 class="mode-title">深度情景推演版</h3>
+            <div class="mode-meta">
+              <span>⏱️ 约 8-12 分钟</span>
+              <span>📝 60 道情景还原题</span>
+            </div>
+            <p class="mode-desc">
+              深入职场重大分歧、旅行突发危机、情感深度需求、截止日高压等多维生活微场景，细致捕捉你的本能反应与思维链条。
+            </p>
+            <button class="btn btn-primary btn-block">开始深度推演测评</button>
+          </div>
+
+          <!-- 模式2：快速精准版 -->
+          <div class="mode-card" onclick="app.startTest('fast')">
+            <div class="mode-badge">⚡ 高效便捷 · 快速定位</div>
+            <div class="mode-icon">🚀</div>
+            <h3 class="mode-title">快速精准版</h3>
+            <div class="mode-meta">
+              <span>⏱️ 约 3-5 分钟</span>
+              <span>📝 28 道核心区分题</span>
+            </div>
+            <p class="mode-desc">
+              精选四维倾向中区分度最高的28道高灵敏探针题，适合时间有限但渴望快速了解自我倾向的伙伴。
+            </p>
+            <button class="btn btn-secondary btn-block">开启快速测验</button>
+          </div>
+
+          <!-- 模式3：荣格八维探索版 -->
+          <div class="mode-card" onclick="app.startTest('cognitive')">
+            <div class="mode-badge">🧠 进阶极客 · 认知八维</div>
+            <div class="mode-icon">🧬</div>
+            <h3 class="mode-title">荣格认知功能探索版</h3>
+            <div class="mode-meta">
+              <span>⏱️ 约 4-6 分钟</span>
+              <span>📝 24 道八维功能探测</span>
+            </div>
+            <p class="mode-desc">
+              专为MBTI爱好者设计，直接测算你的 Ni / Ne / Si / Se / Ti / Te / Fi / Fe 能量分布与强弱雷达图。
+            </p>
+            <button class="btn btn-glass btn-block">探索认知八维栈</button>
+          </div>
+        </div>
+
+        <!-- 历史成绩提示 -->
+        <div class="prev-result-alert hidden" id="prevResultAlert">
+          <span>💡 检测到您本地已有已完成的测评记录：</span>
+          <strong id="prevResultType">INTJ</strong>
+          <button class="btn btn-xs btn-outline" onclick="app.loadSavedResultView()">查看历史诊断看板</button>
+        </div>
+      </div>
+
+      <!-- 测评进行中：答题界面 -->
+      <div class="test-runner-box hidden" id="testRunnerBox">
+        <!-- 进度与控制栏 -->
+        <div class="test-top-bar">
+          <div class="test-meta-info">
+            <span class="test-mode-tag" id="currentModeName">深度情景推演版</span>
+            <span class="test-progress-counter" id="progressCounter">第 1 / 60 题</span>
+          </div>
+
+          <div class="test-dimension-indicator" id="dimIndicator">
+            <span class="dim-badge" id="currentDimBadge">精力来源 E vs I</span>
+          </div>
+
+          <div class="test-actions">
+            <button class="btn btn-xs btn-outline" onclick="app.toggleQuestionDrawer()" title="查看所有题目答题卡">
+              📋 答题卡 (<span id="answeredCount">0</span>/<span id="totalQuestionsCount">60</span>)
+            </button>
+            <button class="btn btn-xs btn-ghost" onclick="app.confirmResetTest()" title="放弃进度并重置">
+              🔄 重新选择
             </button>
           </div>
         </div>
+
+        <!-- 进度条 -->
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="progressBarFill" style="width: 2%;"></div>
+        </div>
+
+        <!-- 题目主卡片 -->
+        <div class="question-container">
+          <div class="question-card" id="questionCard">
+            <div class="q-scenario-tag" id="qScenarioTag">[人际长跑场景]</div>
+            <h3 class="q-title" id="qTitle">一场持续了数小时的社交聚会后</h3>
+            <p class="q-desc" id="qDesc">
+              哪怕现场气氛非常融洽甚至你很受欢迎，散场回家关上门的瞬间，你依然会有一种能量被彻底抽空的感觉，急需独处一整晚甚至整个周末才能重新电量满格。
+            </p>
+
+            <!-- 7级量表选项 -->
+            <div class="likert-scale-wrap">
+              <div class="likert-labels">
+                <span class="label-disagree">非常不符合</span>
+                <span class="label-neutral">中立 / 视情况</span>
+                <span class="label-agree">非常符合</span>
+              </div>
+
+              <div class="likert-options" id="likertOptions">
+                <button class="likert-btn btn-neg-3" data-val="-3" onclick="app.selectAnswer(-3)">
+                  <span class="likert-circle"></span>
+                  <span class="likert-text">极不符合</span>
+                </button>
+                <button class="likert-btn btn-neg-2" data-val="-2" onclick="app.selectAnswer(-2)">
+                  <span class="likert-circle"></span>
+                  <span class="likert-text">较不符合</span>
+                </button>
+                <button class="likert-btn btn-neg-1" data-val="-1" onclick="app.selectAnswer(-1)">
+                  <span class="likert-circle"></span>
+                  <span class="likert-text">微不符合</span>
+                </button>
+                <button class="likert-btn btn-zero" data-val="0" onclick="app.selectAnswer(0)">
+                  <span class="likert-circle"></span>
+                  <span class="likert-text">中立/看情况</span>
+                </button>
+                <button class="likert-btn btn-pos-1" data-val="1" onclick="app.selectAnswer(1)">
+                  <span class="likert-circle"></span>
+                  <span class="likert-text">微符合</span>
+                </button>
+                <button class="likert-btn btn-pos-2" data-val="2" onclick="app.selectAnswer(2)">
+                  <span class="likert-circle"></span>
+                  <span class="likert-text">较符合</span>
+                </button>
+                <button class="likert-btn btn-pos-3" data-val="3" onclick="app.selectAnswer(3)">
+                  <span class="likert-circle"></span>
+                  <span class="likert-text">极符合</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 翻页控制 -->
+          <div class="q-nav-buttons">
+            <button class="btn btn-outline" id="prevQuestionBtn" onclick="app.prevQuestion()">
+              ← 上一题
+            </button>
+            <button class="btn btn-primary" id="nextQuestionBtn" onclick="app.nextQuestion()">
+              下一题 →
+            </button>
+          </div>
+        </div>
+
+        <!-- 答题卡浮层 Drawer -->
+        <div class="question-drawer hidden" id="questionDrawer">
+          <div class="drawer-header">
+            <h4>题目速览卡</h4>
+            <button class="btn-close" onclick="app.toggleQuestionDrawer()">✕</button>
+          </div>
+          <div class="drawer-legend">
+            <span><i class="legend-dot done"></i> 已回答</span>
+            <span><i class="legend-dot un"></i> 未回答</span>
+            <span><i class="legend-dot cur"></i> 当前题</span>
+          </div>
+          <div class="drawer-grid" id="drawerGrid">
+            <!-- 动态生成按钮 -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 测评结果报告看板 -->
+      <div class="test-result-box hidden" id="testResultBox">
+        <!-- 动态生成结果内容 -->
+      </div>
+    </section>
+
+    <!-- ==================== 2. 16型人格全景百科 ==================== -->
+    <section class="section-container" id="sec-encyclopedia">
+      <div class="section-header">
+        <span class="section-kicker">PERSONALITY COMPREHENSIVE ARCHIVE</span>
+        <h2 class="section-title">16 型人格全景档案大百科</h2>
+        <p class="section-subtitle">
+          拒绝千篇一律的刻板标签。深入剖析每一种人格的认知功能底层、闪光优势、致命盲区、黑化高压反噬与搞钱成长秘籍。
+        </p>
+      </div>
+
+      <!-- 过滤与搜索栏 -->
+      <div class="filter-toolbar">
+        <div class="temperament-filter-pills" id="temperamentFilterPills">
+          <button class="filter-pill active" data-temp="ALL" onclick="app.filterProfiles('ALL')">全部 16 型</button>
+          <button class="filter-pill nt-pill" data-temp="NT" onclick="app.filterProfiles('NT')">NT 理性者 (4)</button>
+          <button class="filter-pill nf-pill" data-temp="NF" onclick="app.filterProfiles('NF')">NF 理想国 (4)</button>
+          <button class="filter-pill sj-pill" data-temp="SJ" onclick="app.filterProfiles('SJ')">SJ 守卫者 (4)</button>
+          <button class="filter-pill sp-pill" data-temp="SP" onclick="app.filterProfiles('SP')">SP 探险家 (4)</button>
+        </div>
+
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="profileSearchInput" placeholder="输入代码 (如 INTJ)、名称 (建筑师) 或特质关键词..." oninput="app.searchProfiles(this.value)">
+          <button class="clear-search-btn hidden" id="clearSearchBtn" onclick="app.clearProfileSearch()">✕</button>
+        </div>
+      </div>
+
+      <!-- 16型人格卡片网格 -->
+      <div class="profiles-grid" id="profilesGrid">
+        <!-- 动态渲染 16 张大卡片 -->
+      </div>
+    </section>
+
+    <!-- ==================== 3. 16×16 全关系契合大矩阵 ==================== -->
+    <section class="section-container" id="sec-matrix">
+      <div class="section-header">
+        <span class="section-kicker">COMPATIBILITY MATRIX 16×16</span>
+        <h2 class="section-title">16×16 MBTI 全关系契合度大矩阵</h2>
+        <p class="section-subtitle">
+          全网最详尽的 256 组人格关系全景交互表！无论是神仙眷侣、强强联手，还是相爱相杀修罗场，一览无余。
+        </p>
+      </div>
+
+      <!-- 矩阵控制工具栏 -->
+      <div class="matrix-toolbar">
+        <!-- 视角切换 -->
+        <div class="view-mode-tabs">
+          <button class="view-tab-btn active" id="btnMatrixAll" onclick="app.switchMatrixView('grid')">
+            🌐 16×16 全景总表
+          </button>
+          <button class="view-tab-btn" id="btnMatrixPerspective" onclick="app.switchMatrixView('perspective')">
+            👤 个人专属关系榜单
+          </button>
+        </div>
+
+        <!-- 专属视角选择器 -->
+        <div class="perspective-select-wrap hidden" id="perspectiveSelectWrap">
+          <label>选择以谁为主视角：</label>
+          <select id="perspectiveTypeSelect" onchange="app.renderPerspectiveList(this.value)">
+            <!-- 16型选项 -->
+          </select>
+        </div>
+
+        <!-- 契合层级图例与过滤 -->
+        <div class="matrix-legend">
+          <span class="legend-badge tier-1" onclick="app.filterMatrixTier(1)" title="点击过滤此层级">💖 黄金天配 (94+)</span>
+          <span class="legend-badge tier-2" onclick="app.filterMatrixTier(2)" title="点击过滤此层级">🌟 优势互补 (85-93)</span>
+          <span class="legend-badge tier-3" onclick="app.filterMatrixTier(3)" title="点击过滤此层级">🤝 温和默契 (75-84)</span>
+          <span class="legend-badge tier-4" onclick="app.filterMatrixTier(4)" title="点击过滤此层级">⚡ 磨合修行 (68-74)</span>
+          <span class="legend-badge tier-5" onclick="app.filterMatrixTier(5)" title="点击过滤此层级">❄️ 认知异星 (&lt;68)</span>
+          <button class="btn btn-xs btn-ghost" id="resetMatrixFilterBtn" onclick="app.resetMatrixTierFilter()" style="display:none;">重置过滤</button>
+        </div>
+      </div>
+
+      <!-- 矩阵展示区 -->
+      <div class="matrix-display-container">
+        <!-- 视图 1：16x16 全景网格 -->
+        <div class="matrix-table-wrap" id="matrixTableWrap">
+          <div class="matrix-scroll-hint">👉 横向滑动查看完整 16 列 · 点击任意单元格查看深度速览</div>
+          <table class="mbti-matrix-table" id="mbtiMatrixTable">
+            <!-- 动态渲染 17x17 矩阵 -->
+          </table>
+        </div>
+
+        <!-- 视图 2：个人专属排行榜 -->
+        <div class="perspective-view-wrap hidden" id="perspectiveViewWrap">
+          <div class="perspective-hero" id="perspectiveHero">
+            <!-- 头部概览 -->
+          </div>
+          <div class="perspective-ranks-grid" id="perspectiveRanksGrid">
+            <!-- 15种关系排序卡片 -->
+          </div>
+        </div>
+      </div>
+
+      <!-- 矩阵点击后的快捷迷你弹窗 / 卡片 -->
+      <div class="mini-chemistry-modal hidden" id="miniChemistryModal">
+        <div class="mini-modal-content">
+          <button class="btn-close" onclick="app.closeMiniChemistryModal()">✕</button>
+          <div id="miniChemistryBody">
+            <!-- 动态内容 -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. 组合动力学生成器 ==================== -->
+    <section class="section-container" id="sec-generator">
+      <div class="section-header">
+        <span class="section-kicker">RELATIONSHIP DYNAMICS GENERATOR</span>
+        <h2 class="section-title">专属 MBTI 关系动力学生成器</h2>
+        <p class="section-subtitle">
+          选择任意两种人格与关系场景（情侣、合伙人、闺蜜、室友），即刻生成专属深度心理动力学研判报告！
+        </p>
+      </div>
+
+      <!-- 组合配置工作台 -->
+      <div class="generator-workbench">
+        <div class="pair-selector-row">
+          <!-- 甲方 Person A -->
+          <div class="selector-card person-a-card">
+            <div class="selector-header">
+              <span class="person-tag">一方人格 (Person A)</span>
+              <button class="btn btn-xs btn-outline" id="importMyTypeBtn" onclick="app.importUserTypeToA()" title="填入我的测评结果">
+                导入我的MBTI
+              </button>
+            </div>
+            <div class="mbti-picker" id="pickerA">
+              <!-- 下拉或网格 -->
+              <select id="selectTypeA" onchange="app.onTypeAChange(this.value)">
+                <!-- 16型选项 -->
+              </select>
+            </div>
+            <div class="person-preview" id="previewA">
+              <!-- 预览小卡 -->
+            </div>
+          </div>
+
+          <!-- 中间连接器与场景选择 -->
+          <div class="relation-hub-card">
+            <div class="hub-icon-wrap">
+              <span class="hub-symbol">⚡</span>
+            </div>
+            
+            <div class="scenario-selector-wrap">
+              <label class="scenario-label">关系场景定义：</label>
+              <div class="scenario-buttons-grid" id="scenarioButtons">
+                <button class="scenario-btn active" data-scenario="couple" onclick="app.setScenario('couple')">
+                  <span class="s-icon">💘</span>
+                  <span class="s-name">情侣/伴侣</span>
+                </button>
+                <button class="scenario-btn" data-scenario="work" onclick="app.setScenario('work')">
+                  <span class="s-icon">💼</span>
+                  <span class="s-name">职场/合伙</span>
+                </button>
+                <button class="scenario-btn" data-scenario="friend" onclick="app.setScenario('friend')">
+                  <span class="s-icon">👯</span>
+                  <span class="s-name">知心闺蜜</span>
+                </button>
+                <button class="scenario-btn" data-scenario="roommate" onclick="app.setScenario('roommate')">
+                  <span class="s-icon">🏠</span>
+                  <span class="s-name">合租室友</span>
+                </button>
+                <button class="scenario-btn" data-scenario="rival" onclick="app.setScenario('rival')">
+                  <span class="s-icon">⚔️</span>
+                  <span class="s-name">思维对手</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 操作按钮 -->
+            <div class="hub-actions">
+              <button class="btn btn-primary btn-block glow-btn" onclick="app.generateDynamicReport()">
+                ✨ 生成深度动力学报告
+              </button>
+              <button class="btn btn-ghost btn-sm" onclick="app.randomPair()">
+                🎲 随机偶遇一对神仙组合
+              </button>
+            </div>
+          </div>
+
+          <!-- 乙方 Person B -->
+          <div class="selector-card person-b-card">
+            <div class="selector-header">
+              <span class="person-tag">另一方人格 (Person B)</span>
+              <button class="btn btn-xs btn-outline" onclick="app.pickGoldenForA()" title="自动推荐A的黄金天配">
+                匹配天作之合
+              </button>
+            </div>
+            <div class="mbti-picker" id="pickerB">
+              <select id="selectTypeB" onchange="app.onTypeBChange(this.value)">
+                <!-- 16型选项 -->
+              </select>
+            </div>
+            <div class="person-preview" id="previewB">
+              <!-- 预览小卡 -->
+            </div>
+          </div>
+        </div>
+
+        <!-- 经典组合快捷传送门 -->
+        <div class="classic-presets-bar">
+          <span class="preset-label">🔥 热门经典神仙搭档速查：</span>
+          <div class="preset-chips">
+            <button class="preset-chip" onclick="app.quickPreset('INTJ', 'ENFP', 'couple')">INTJ × ENFP (深海与风筝)</button>
+            <button class="preset-chip" onclick="app.quickPreset('ENTJ', 'INTP', 'work')">ENTJ × INTP (统帅与架构师)</button>
+            <button class="preset-chip" onclick="app.quickPreset('INFJ', 'ENTP', 'couple')">INFJ × ENTP (读心与狂飙)</button>
+            <button class="preset-chip" onclick="app.quickPreset('INFP', 'ENFJ', 'couple')">INFP × ENFJ (解语花与引路人)</button>
+            <button class="preset-chip" onclick="app.quickPreset('ISTJ', 'ESFP', 'couple')">ISTJ × ESFP (磐石与孔雀)</button>
+            <button class="preset-chip" onclick="app.quickPreset('ENTJ', 'ESTJ', 'work')">ENTJ × ESTJ (重装双核引擎)</button>
+            <button class="preset-chip" onclick="app.quickPreset('INFP', 'ESTJ', 'couple')">INFP × ESTJ (欢喜冤家修罗场)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 动态报告输出看板 -->
+      <div class="dynamic-report-container" id="dynamicReportContainer">
+        <!-- 初始或生成后的报告看板 -->
+      </div>
+    </section>
+
+    <!-- ==================== 5. 人格双人对比台 ==================== -->
+    <section class="section-container" id="sec-comparator">
+      <div class="section-header">
+        <span class="section-kicker">SIDE-BY-SIDE COMPARATOR</span>
+        <h2 class="section-title">人格双人对比台</h2>
+        <p class="section-subtitle">
+          将任意两款 MBTI 放在同一天平上，直观对照认知八维栈、思维模式、处事优缺点及应对压力的根本异同。
+        </p>
+      </div>
+
+      <div class="comparator-controls">
+        <div class="compare-selector">
+          <label>左侧人格：</label>
+          <select id="compareSelect1" onchange="app.renderComparison()">
+            <!-- 16型 -->
+          </select>
+        </div>
+        <div class="compare-vs">VS</div>
+        <div class="compare-selector">
+          <label>右侧人格：</label>
+          <select id="compareSelect2" onchange="app.renderComparison()">
+            <!-- 16型 -->
+          </select>
+        </div>
+      </div>
+
+      <div class="comparison-table-wrap" id="comparisonTableWrap">
+        <!-- 动态生成对比表格 -->
       </div>
     </section>
 
   </main>
 
-  <!-- ==================== 天子诏书 · 帝王深度档案模态弹窗 Modal ==================== -->
-  <div class="modal-overlay" id="emperorModal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-decree-card">
-      <!-- 弹窗顶部栏 -->
-      <div class="modal-top-bar">
-        <div class="modal-top-title" id="modalDynastyTitle">大明帝国 · 洪武年间</div>
-        <button class="modal-close-btn" id="modalCloseBtn" aria-label="关闭诏书档案">✕</button>
+  <!-- ==================== 全局弹窗 / 模态框 ==================== -->
+
+  <!-- 16型人格详尽档案弹窗 -->
+  <div class="modal-backdrop hidden" id="profileModalBackdrop" onclick="app.closeProfileModal(event)">
+    <div class="profile-modal" id="profileModal" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="app.closeProfileModal()">✕</button>
+      <div class="profile-modal-body" id="profileModalBody">
+        <!-- 动态注入详尽档案 -->
       </div>
+    </div>
+  </div>
 
-      <!-- 弹窗主体内容滚动区 -->
-      <div class="modal-content-scroll">
-        <!-- 左侧列：高清画像与印鉴 -->
-        <div class="modal-left-col">
-          <div class="modal-portrait-frame">
-            <img src="" alt="传世御容肖像" class="modal-portrait-img" id="modalPortraitImg">
-            <div class="portrait-fallback" id="modalPortraitFallback" style="display: none;">
-              <div class="fallback-seal" id="modalFallbackSeal">帝</div>
-              <span id="modalFallbackText" style="font-family: var(--font-kaiti); font-weight: 700; font-size: 1.1rem; color: var(--c-vermilion);">传世御容</span>
-            </div>
-          </div>
-          <div class="modal-seal-signature" id="modalSealStamp">
-            <span>❖</span> <span id="modalSealText">奉天承运皇帝诏曰</span> <span>❖</span>
-          </div>
-        </div>
-
-        <!-- 右侧列：生平、功过、名言、典故与史评 -->
-        <div class="modal-right-col">
-          <!-- 头部标题 -->
-          <div class="modal-emperor-header">
-            <h2 class="modal-emperor-title" id="modalEmperorName">明太祖 <span>朱元璋</span></h2>
-            <div class="modal-spec-grid" id="modalSpecGrid">
-              <!-- 动态填充 -->
-            </div>
-          </div>
-
-          <!-- 生平概略 -->
-          <div class="decree-block">
-            <h3 class="decree-section-title"><span>📜</span> 帝王概览</h3>
-            <p class="decree-section-p" id="modalSummary"></p>
-          </div>
-
-          <!-- 治世功绩清单 -->
-          <div class="decree-block">
-            <h3 class="decree-section-title"><span>🌟</span> 千秋功绩与治世政绩</h3>
-            <ul class="achievements-list" id="modalAchievementsList">
-              <!-- 动态填充 -->
-            </ul>
-          </div>
-
-          <!-- 历史争议与教训 -->
-          <div class="decree-block" id="modalControversiesWrap">
-            <h3 class="decree-section-title"><span>⚖️</span> 历史争议与镜鉴</h3>
-            <div class="controversy-box" id="modalControversiesBox"></div>
-          </div>
-
-          <!-- 传世名言与名篇 -->
-          <div class="decree-block" id="modalQuotesWrap">
-            <h3 class="decree-section-title"><span>💬</span> 著名名言与传世诗篇</h3>
-            <div class="quote-scroll-box" id="modalQuoteBox"></div>
-          </div>
-
-          <!-- 历史典故与成语轶事 -->
-          <div class="decree-block" id="modalAnecdotesWrap">
-            <h3 class="decree-section-title"><span>📖</span> 历史典故与著名轶事</h3>
-            <p class="decree-section-p" id="modalAnecdotes"></p>
-          </div>
-
-          <!-- 后世名家客观评述 -->
-          <div class="decree-block" id="modalEvaluationWrap">
-            <h3 class="decree-section-title"><span>🖋️</span> 后世名家历史评述</h3>
-            <p class="decree-section-p" id="modalEvaluation" style="font-style: italic; color: var(--c-ink-soft);"></p>
-          </div>
-        </div>
+  <!-- 结果卡片导出分享弹窗 -->
+  <div class="modal-backdrop hidden" id="shareCardModalBackdrop" onclick="app.closeShareModal(event)">
+    <div class="share-card-modal" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="app.closeShareModal()">✕</button>
+      <div class="share-modal-header">
+        <h3>🖼️ 您的 MBTI 专属人格诊断卡</h3>
+        <p>长按或右键可直接保存图片，也可以一键复制文本报告</p>
       </div>
-
-        <!-- 弹窗底栏：上下位帝王切换 -->
-      <div class="modal-footer-nav">
-        <button class="modal-nav-btn" id="modalPrevBtn">
-          <span>←</span> 上一位帝王
+      <div class="canvas-preview-wrap">
+        <canvas id="shareCanvas" width="800" height="1100"></canvas>
+      </div>
+      <div class="share-modal-actions">
+        <button class="btn btn-primary" onclick="app.downloadShareCard()">
+          💾 下载高清长图
         </button>
-        <span style="font-size: 0.85rem; color: var(--c-ink-soft);" id="modalIndexIndicator">1 / 50</span>
-        <button class="modal-nav-btn" id="modalNextBtn">
-          下一位帝王 <span>→</span>
+        <button class="btn btn-outline" onclick="app.copyReportText()">
+          📋 复制文本诊断报告
         </button>
       </div>
     </div>
   </div>
 
-  <!-- ==================== 页脚 Footer ==================== -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-seal">❖ 天戴其苍 · 地履其黄 · 纵有千古 · 横有八荒 ❖</div>
-      <p class="footer-desc">
-        本资料库严谨参照《史记》《汉书》《三国志》《晋书》《宋书》《魏书》《隋书》《旧唐书》《新唐书》《新五代史》《宋史》《辽史》《金史》《元史》《明史》《清史稿》《资治通鉴》等中国古代二十四史及正史文献考据，肖像均采用公开传世国宝御容画像与文物标准像。
-      </p>
+  <!-- 全局 Toast 提示 -->
+  <div class="toast-notification" id="toastNotification">
+    <span id="toastMessage">已成功复制</span>
+  </div>
 
-      <div class="footer-links">
-        <a href="#siteHeader" class="footer-link">返回页面顶部</a>
-        <a href="https://github.com/yh9h86pnxn-create/chinese-emperors-archive" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub 仓库开源地址</a>
-        <a href="https://yh9h86pnxn-create.github.io/chinese-emperors-archive/" target="_blank" rel="noopener noreferrer" class="footer-link">在线访问专属网页链接</a>
+  <!-- 页脚 Footer -->
+  <footer class="app-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="footer-logo">🔮</span>
+        <span>MBTI 深度探索航标 · 心理学与人际动力学实验室</span>
       </div>
-
-      <div class="footer-bottom-copy">
-        华夏万岁 · 中国古代历届帝王名鉴与朝代演进大系 &copy; 2026. 纯前端零依赖静态部署，支持手机、平板与电脑无障碍跨端浏览。
+      <p class="footer-disclaimer">
+        基于瑞士心理学家卡尔·荣格（Carl Gustav Jung）心理类型学与迈尔斯-布里格斯理论（MBTI）构建。
+        本测试与分析旨在促进自我觉察与人际理解，不作任何临床心理学医疗诊断。每个生命皆独一无二，请在尊重真实自我中自由生长。
+      </p>
+      <div class="footer-links">
+        <a href="#sec-test" onclick="app.switchTab('test')">开始测试</a>
+        <span>·</span>
+        <a href="#sec-encyclopedia" onclick="app.switchTab('encyclopedia')">16型百科</a>
+        <span>·</span>
+        <a href="#sec-matrix" onclick="app.switchTab('matrix')">契合度矩阵</a>
+        <span>·</span>
+        <a href="#sec-generator" onclick="app.switchTab('generator')">组合生成器</a>
       </div>
     </div>
   </footer>
 
-  <!-- 回到顶部按钮 -->
-  <button class="back-to-top-btn" id="backToTopBtn" title="返回顶部" aria-label="返回顶部">
-    <span>↑</span>
-  </button>
-
-  <!-- 引入数据库与核心应用脚本 -->
+  <!-- 核心数据与业务脚本 -->
   <script src="data.js"></script>
   <script src="app.js"></script>
 </body>
