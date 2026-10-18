@@ -1,6 +1,10 @@
 # ⚔️ 王者荣耀 · 英雄殿堂与全景战术实验室
 > Honor of Kings - Hero Codex, Soulmate Hero Assessment, Tactical Lane Diagnostic, Synergy Matrix & Duo Dynamics Lab
 
+## 🌐 网站在线直接访问链接（点击即用）
+### 👉 [https://yh9h86pnxn-create.github.io/wangzhe-hero-archive/](https://yh9h86pnxn-create.github.io/wangzhe-hero-archive/)
+*(复制上方链接或在浏览器/微信中打开，手机、平板、电脑均可直接使用)*
+
 ---
 
 ## 🌟 项目亮点与核心功能
