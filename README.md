@@ -1,6 +1,10 @@
 # 🔮 MBTI 深度探索航标 · 心理情景测评与全关系动力学实验室
 > An In-depth MBTI Situational Assessment, 16 Personalities Encyclopedia, 16×16 Compatibility Matrix & Relationship Dynamic Generator
 
+## 🌐 网站在线直接访问链接（点击即用）
+### 👉 [https://yh9h86pnxn-create.github.io/mbti-universe/](https://yh9h86pnxn-create.github.io/mbti-universe/)
+*(复制上方链接或直接在浏览器中打开，手机、平板、电脑均可直接使用，随时随地分享给微信好友、朋友圈或任何人浏览与测评)*
+
 ---
 
 ## 🌟 项目亮点与核心特色（比官网更细节、更真实）
