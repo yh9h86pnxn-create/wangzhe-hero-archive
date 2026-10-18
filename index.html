@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MBTI 深度探索航标 · 专业情景测评与关系动力学实验室</title>
-  <meta name="description" content="比官网更细节、更真实的MBTI情景诊断与全关系动力学矩阵。包含60题深度情景测评、16型人格全景百科、16×16契合度关系大表、情侣/职场搭档专属报告生成器。">
+  <title>王者荣耀 · 英雄殿堂与本命英雄动力学实验室</title>
+  <meta name="description" content="全英雄分类检索、技能背景全景档案、本命英雄性格灵魂共鸣测评、天命战术分路诊断、排位经典搭档羁绊与开黑动力学生成器。">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>">
 </head>
 <body class="theme-dark">
-  <!-- 顶部星空背景流动光晕 -->
+  <!-- 峡谷星河战火流动光斑 -->
   <div class="ambient-glow glow-1"></div>
   <div class="ambient-glow glow-2"></div>
   <div class="ambient-glow glow-3"></div>
@@ -18,36 +18,39 @@
   <header class="navbar" id="topNavbar">
     <div class="nav-container">
       <div class="nav-brand" onclick="app.switchTab('home')">
-        <span class="brand-logo">🔮</span>
+        <span class="brand-logo">⚔️</span>
         <div class="brand-text">
-          <span class="brand-title">MBTI 深度实验室</span>
-          <span class="brand-subtitle">INSIGHT & DYNAMICS LAB</span>
+          <span class="brand-title">王者荣耀 · 英雄殿堂</span>
+          <span class="brand-subtitle">HERO CODEX & SOULMATE LAB</span>
         </div>
       </div>
 
       <nav class="nav-links">
-        <button class="nav-btn active" data-tab="test" onclick="app.switchTab('test')">
-          <span class="nav-icon">🎯</span> 深度测评
+        <button class="nav-btn active" data-tab="soulmate" onclick="app.switchTab('soulmate')">
+          <span class="nav-icon">🎯</span> 本命英雄测评
         </button>
-        <button class="nav-btn" data-tab="encyclopedia" onclick="app.switchTab('encyclopedia')">
-          <span class="nav-icon">📖</span> 16型百科
+        <button class="nav-btn" data-tab="tactical" onclick="app.switchTab('tactical')">
+          <span class="nav-icon">🧭</span> 天命分路诊断
         </button>
-        <button class="nav-btn" data-tab="matrix" onclick="app.switchTab('matrix')">
-          <span class="nav-icon">📊</span> 关系大矩阵
+        <button class="nav-btn" data-tab="codex" onclick="app.switchTab('codex')">
+          <span class="nav-icon">📖</span> 英雄资料库
+        </button>
+        <button class="nav-btn" data-tab="synergy" onclick="app.switchTab('synergy')">
+          <span class="nav-icon">🤝</span> 搭档羁绊矩阵
         </button>
         <button class="nav-btn" data-tab="generator" onclick="app.switchTab('generator')">
-          <span class="nav-icon">💘</span> 组合生成器
+          <span class="nav-icon">🔮</span> 开黑动力学生成器
         </button>
         <button class="nav-btn" data-tab="comparator" onclick="app.switchTab('comparator')">
-          <span class="nav-icon">⚖️</span> 人格对比台
+          <span class="nav-icon">⚖️</span> 英雄对抗天平
         </button>
       </nav>
 
       <div class="nav-actions">
-        <!-- 用户已测出的MBTI徽章快捷查看 -->
-        <button class="user-mbti-badge hidden" id="userMbtiBadge" onclick="app.showSavedResult()" title="点击查看您的测评报告">
+        <!-- 用户已测出的本命英雄徽章快捷查看 -->
+        <button class="user-hero-badge hidden" id="userHeroBadge" onclick="app.showSavedSoulmate()" title="查看您的本命英雄报告">
           <span class="badge-dot"></span>
-          <span class="badge-text" id="userMbtiText">INTJ</span>
+          <span class="badge-text" id="userHeroText">李白</span>
         </button>
 
         <!-- 音效开关 -->
@@ -65,526 +68,468 @@
 
   <!-- 页面主体容器 -->
   <main class="main-content">
-    
+
     <!-- ==================== HOME / HERO 模块 ==================== -->
     <section class="section-container active" id="sec-home">
       <div class="hero-card">
-        <div class="hero-badge">✨ 告别假大空 · 深入荣格认知底层与现实细节</div>
+        <div class="hero-badge">✨ 探寻属于你的峡谷精神共鸣与天命战术分路</div>
         <h1 class="hero-title">
-          探索真实的自我与人际化学反应
+          全英雄全景档案与王者开黑实验室
         </h1>
         <p class="hero-desc">
-          比传统官网测评更具细节与现实情景推演。深度诊断 <strong>4大倾向维度</strong> 与 <strong>8大认知功能栈</strong>，
-          解析16型人格的闪光点、致命盲区与黑化自救，解锁 <strong>16×16 全关系矩阵</strong> 与 <strong>情侣/搭档深度动力学报告</strong>。
+          汇聚 <strong>30 位核心峡谷英雄</strong> 的详尽技能机制、性格底色与背景编年史。
+          通过 <strong>本命英雄灵魂共鸣测评</strong> 找到与你灵魂同频的峡谷战神；
+          通过 <strong>战术风格诊断</strong> 锁定你的天命分路与英雄池；
+          探索 <strong>排位神仙搭档与情侣羁绊矩阵</strong>，解锁专属开黑战术动力学报告！
         </p>
 
         <div class="hero-stats">
           <div class="stat-pill">
-            <span class="stat-num">60+</span>
-            <span class="stat-label">真实情境推演题</span>
+            <span class="stat-num">30+</span>
+            <span class="stat-label">峡谷核心英雄图鉴</span>
           </div>
           <div class="stat-pill">
-            <span class="stat-num">16</span>
-            <span class="stat-label">全维度深度档案</span>
-          </div>
-          <div class="stat-pill">
-            <span class="stat-num">256</span>
-            <span class="stat-label">双人关系契合全解析</span>
+            <span class="stat-num">2</span>
+            <span class="stat-label">深度心理/战术测评</span>
           </div>
           <div class="stat-pill">
             <span class="stat-num">5</span>
-            <span class="stat-label">情侣/搭档场景动力学</span>
+            <span class="stat-label">核心分路深度诊断</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-num">20+</span>
+            <span class="stat-label">神仙搭档/黑科技套路</span>
           </div>
         </div>
 
         <div class="hero-cta-group">
-          <button class="btn btn-primary btn-large glow-btn" onclick="app.switchTab('test')">
-            <span class="btn-icon">🚀</span> 立即开始专业测评
+          <button class="btn btn-primary btn-large glow-btn" onclick="app.switchTab('soulmate')">
+            <span class="btn-icon">🎯</span> 测算我的本命英雄
           </button>
-          <button class="btn btn-secondary btn-large" onclick="app.switchTab('matrix')">
-            <span class="btn-icon">📊</span> 查阅 16×16 关系大矩阵
+          <button class="btn btn-secondary btn-large" onclick="app.switchTab('tactical')">
+            <span class="btn-icon">🧭</span> 诊断我的天命分路
           </button>
           <button class="btn btn-glass btn-large" onclick="app.switchTab('generator')">
-            <span class="btn-icon">💘</span> 测算两人关系组合
+            <span class="btn-icon">🔮</span> 生成双人开黑动力学
+          </button>
+          <button class="btn btn-outline btn-large" onclick="app.switchTab('codex')">
+            <span class="btn-icon">📖</span> 浏览英雄全景大百科
           </button>
         </div>
       </div>
 
-      <!-- 四天气质分类快速总览 -->
-      <div class="temperament-overview">
-        <h2 class="sub-heading">四大性格气质家族</h2>
-        <div class="temperament-grid">
-          <div class="temp-card nt-card" onclick="app.filterEncyclopedia('NT')">
-            <div class="temp-header">
-              <span class="temp-icon">🔮</span>
-              <span class="temp-tag">NT 理性者 / 分析家</span>
-            </div>
-            <h3>战略架构与真理求索</h3>
-            <p>INTJ · INTP · ENTJ · ENTP</p>
-            <div class="temp-footer">探索本质规律，解构复杂系统与战略推演 →</div>
+      <!-- 六大职业家族快速总览 -->
+      <div class="roles-overview">
+        <h2 class="sub-heading">王者峡谷 · 六大职业家族</h2>
+        <div class="roles-grid">
+          <div class="role-card role-assassin" onclick="app.filterCodex('assassin', 'ALL')">
+            <div class="role-icon">🗡️</div>
+            <h3>刺客 · 绝命突击</h3>
+            <p>李白 · 澜 · 韩信 · 司马懿 · 镜 · 百里玄策</p>
+            <div class="role-footer">千里奔袭收割双C，节奏掌控者 →</div>
           </div>
 
-          <div class="temp-card nf-card" onclick="app.filterEncyclopedia('NF')">
-            <div class="temp-header">
-              <span class="temp-icon">🌿</span>
-              <span class="temp-tag">NF 理想国 / 外交家</span>
-            </div>
-            <h3>精神共鸣与灵魂唤醒</h3>
-            <p>INFJ · INFP · ENFJ · ENFP</p>
-            <div class="temp-footer">探寻生命意义，恪守良知信念与人本关怀 →</div>
+          <div class="role-card role-mage" onclick="app.filterCodex('mage', 'ALL')">
+            <div class="role-icon">🔮</div>
+            <h3>法师 · 烽火燎原</h3>
+            <p>诸葛亮 · 貂蝉 · 西施 · 周瑜 · 小乔</p>
+            <div class="role-footer">群体爆发与控场，团战AOE轰炸核心 →</div>
           </div>
 
-          <div class="temp-card sj-card" onclick="app.filterEncyclopedia('SJ')">
-            <div class="temp-header">
-              <span class="temp-icon">🛡️</span>
-              <span class="temp-tag">SJ 守卫者 / 秩序者</span>
-            </div>
-            <h3>定海神针与尽职担当</h3>
-            <p>ISTJ · ISFJ · ESTJ · ESFJ</p>
-            <div class="temp-footer">筑牢社会基石，恪守契约承诺与稳健流程 →</div>
+          <div class="role-card role-marksman" onclick="app.filterCodex('marksman', 'ALL')">
+            <div class="role-icon">🏹</div>
+            <h3>射手 · 破阵神弩</h3>
+            <p>公孙离 · 鲁班七号 · 孙尚香 · 马可波罗 · 百里守约 · 后羿</p>
+            <div class="role-footer">持续物理穿透，推塔拔点与后期翻盘保证 →</div>
           </div>
 
-          <div class="temp-card sp-card" onclick="app.filterEncyclopedia('SP')">
-            <div class="temp-header">
-              <span class="temp-icon">⚡</span>
-              <span class="temp-tag">SP 探险家 / 破局者</span>
-            </div>
-            <h3>现场狂飙与极致手艺</h3>
-            <p>ISTP · ISFP · ESTP · ESFP</p>
-            <div class="temp-footer">活在当下物理体验，现场危机敏锐破局 →</div>
+          <div class="role-card role-fighter" onclick="app.filterCodex('fighter', 'ALL')">
+            <div class="role-icon">⚔️</div>
+            <h3>战士 · 破灭狂澜</h3>
+            <p>铠 · 花木兰 · 曜 · 孙策 · 吕布</p>
+            <div class="role-footer">能抗能打孤身破局，对抗路真男人博弈 →</div>
+          </div>
+
+          <div class="role-card role-tank" onclick="app.filterCodex('tank', 'ALL')">
+            <div class="role-icon">🛡️</div>
+            <h3>坦克 · 圣骑之光</h3>
+            <p>亚瑟 · 项羽 · 廉颇 · 白起</p>
+            <div class="role-footer">身板坚韧先手开团，以血肉之躯筑牢防线 →</div>
+          </div>
+
+          <div class="role-card role-support" onclick="app.filterCodex('support', 'ALL')">
+            <div class="role-icon">🕊️</div>
+            <h3>辅助 · 神机护航</h3>
+            <p>瑶 · 大乔 · 鲁班大师 · 太乙真人 · 庄周</p>
+            <div class="role-footer">时空传送与全队增益，视野把控与定海神针 →</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== 1. 深度测评模块 ==================== -->
-    <section class="section-container" id="sec-test">
-      <!-- 测评前：模式选择器 -->
-      <div class="test-intro-box" id="testIntroBox">
+    <!-- ==================== 1. 本命英雄灵魂共鸣测评 ==================== -->
+    <section class="section-container" id="sec-soulmate">
+      <div class="test-intro-box" id="soulmateIntroBox">
         <div class="section-header">
-          <span class="section-kicker">ASSESSMENT ENGINE</span>
-          <h2 class="section-title">选择适合您的测评模式</h2>
+          <span class="section-kicker">SOULMATE HERO DIAGNOSTIC</span>
+          <h2 class="section-title">测算你的峡谷本命英雄</h2>
           <p class="section-subtitle">
-            摒弃模棱两可的抽象套话，我们基于职场决策、压力情境、人际摩擦等具体现实推演，帮您精准锁定真实的人格底色。
+            每一位英雄的台词与战意背后，都藏着一种看待世界的人生态度。深入你的处事哲学、危机反应与精神追求，精准锁定与你灵魂同频的本命战神！
           </p>
         </div>
 
-        <div class="test-modes-grid">
-          <!-- 模式1：深度情景推演版 -->
-          <div class="mode-card featured" onclick="app.startTest('detailed')">
-            <div class="mode-badge">🌟 强烈推荐 · 最深入透彻</div>
-            <div class="mode-icon">🎯</div>
-            <h3 class="mode-title">深度情景推演版</h3>
-            <div class="mode-meta">
-              <span>⏱️ 约 8-12 分钟</span>
-              <span>📝 60 道情景还原题</span>
-            </div>
-            <p class="mode-desc">
-              深入职场重大分歧、旅行突发危机、情感深度需求、截止日高压等多维生活微场景，细致捕捉你的本能反应与思维链条。
-            </p>
-            <button class="btn btn-primary btn-block">开始深度推演测评</button>
+        <div class="soulmate-hero-card-featured">
+          <div class="feature-icon">🎯</div>
+          <h3>本命英雄灵魂共鸣推演测评</h3>
+          <div class="mode-meta">
+            <span>⏱️ 约 3-5 分钟</span>
+            <span>📝 深度性格价值观测试</span>
+            <span>🔮 智能匹配度算法</span>
           </div>
-
-          <!-- 模式2：快速精准版 -->
-          <div class="mode-card" onclick="app.startTest('fast')">
-            <div class="mode-badge">⚡ 高效便捷 · 快速定位</div>
-            <div class="mode-icon">🚀</div>
-            <h3 class="mode-title">快速精准版</h3>
-            <div class="mode-meta">
-              <span>⏱️ 约 3-5 分钟</span>
-              <span>📝 28 道核心区分题</span>
-            </div>
-            <p class="mode-desc">
-              精选四维倾向中区分度最高的28道高灵敏探针题，适合时间有限但渴望快速了解自我倾向的伙伴。
-            </p>
-            <button class="btn btn-secondary btn-block">开启快速测验</button>
-          </div>
-
-          <!-- 模式3：荣格八维探索版 -->
-          <div class="mode-card" onclick="app.startTest('cognitive')">
-            <div class="mode-badge">🧠 进阶极客 · 认知八维</div>
-            <div class="mode-icon">🧬</div>
-            <h3 class="mode-title">荣格认知功能探索版</h3>
-            <div class="mode-meta">
-              <span>⏱️ 约 4-6 分钟</span>
-              <span>📝 24 道八维功能探测</span>
-            </div>
-            <p class="mode-desc">
-              专为MBTI爱好者设计，直接测算你的 Ni / Ne / Si / Se / Ti / Te / Fi / Fe 能量分布与强弱雷达图。
-            </p>
-            <button class="btn btn-glass btn-block">探索认知八维栈</button>
-          </div>
+          <p>
+            通过面对规矩的态度、绝境逆境抉择、人际模式、恩怨断舍与爱情执念，全景推导你与哪位英雄的精神底色最契合。
+          </p>
+          <button class="btn btn-primary btn-large glow-btn" onclick="app.startSoulmateTest()">
+            🚀 立即开始本命英雄测算
+          </button>
         </div>
 
-        <!-- 历史成绩提示 -->
-        <div class="prev-result-alert hidden" id="prevResultAlert">
-          <span>💡 检测到您本地已有已完成的测评记录：</span>
-          <strong id="prevResultType">INTJ</strong>
-          <button class="btn btn-xs btn-outline" onclick="app.loadSavedResultView()">查看历史诊断看板</button>
+        <!-- 历史测评记录提示 -->
+        <div class="prev-result-alert hidden" id="prevSoulmateAlert">
+          <span>💡 检测到您此前测出的本命英雄为：</span>
+          <strong id="prevSoulmateHeroName">李白</strong>
+          <button class="btn btn-xs btn-outline" onclick="app.showSavedSoulmate()">查看历史本命神殿报告</button>
         </div>
       </div>
 
-      <!-- 测评进行中：答题界面 -->
-      <div class="test-runner-box hidden" id="testRunnerBox">
-        <!-- 进度与控制栏 -->
+      <!-- 答题容器 -->
+      <div class="test-runner-box hidden" id="soulmateRunnerBox">
         <div class="test-top-bar">
           <div class="test-meta-info">
-            <span class="test-mode-tag" id="currentModeName">深度情景推演版</span>
-            <span class="test-progress-counter" id="progressCounter">第 1 / 60 题</span>
+            <span class="test-mode-tag">本命英雄深度推演</span>
+            <span class="test-progress-counter" id="smProgressCounter">第 1 / 6 题</span>
           </div>
-
-          <div class="test-dimension-indicator" id="dimIndicator">
-            <span class="dim-badge" id="currentDimBadge">精力来源 E vs I</span>
+          <div class="test-dimension-indicator">
+            <span class="dim-badge" id="smDimBadge">核心性格与价值观</span>
           </div>
-
           <div class="test-actions">
-            <button class="btn btn-xs btn-outline" onclick="app.toggleQuestionDrawer()" title="查看所有题目答题卡">
-              📋 答题卡 (<span id="answeredCount">0</span>/<span id="totalQuestionsCount">60</span>)
-            </button>
-            <button class="btn btn-xs btn-ghost" onclick="app.confirmResetTest()" title="放弃进度并重置">
-              🔄 重新选择
-            </button>
+            <button class="btn btn-xs btn-ghost" onclick="app.confirmResetSoulmate()">🔄 放弃重选</button>
           </div>
         </div>
 
-        <!-- 进度条 -->
         <div class="progress-bar-wrap">
-          <div class="progress-bar-fill" id="progressBarFill" style="width: 2%;"></div>
+          <div class="progress-bar-fill" id="smProgressBarFill" style="width: 16%;"></div>
         </div>
 
-        <!-- 题目主卡片 -->
-        <div class="question-container">
-          <div class="question-card" id="questionCard">
-            <div class="q-scenario-tag" id="qScenarioTag">[人际长跑场景]</div>
-            <h3 class="q-title" id="qTitle">一场持续了数小时的社交聚会后</h3>
-            <p class="q-desc" id="qDesc">
-              哪怕现场气氛非常融洽甚至你很受欢迎，散场回家关上门的瞬间，你依然会有一种能量被彻底抽空的感觉，急需独处一整晚甚至整个周末才能重新电量满格。
-            </p>
+        <div class="question-card" id="smQuestionCard">
+          <div class="q-scenario-tag" id="smScenarioTag">[ 处世哲学探针 ]</div>
+          <h3 class="q-title" id="smTitle">面对世俗规矩与自我追求的分歧</h3>
+          <p class="q-desc" id="smDesc">
+            面对世俗既定已久的陈规旧习与教条时，你内心的真实声音更倾向于哪一种？
+          </p>
 
-            <!-- 7级量表选项 -->
-            <div class="likert-scale-wrap">
-              <div class="likert-labels">
-                <span class="label-disagree">非常不符合</span>
-                <span class="label-neutral">中立 / 视情况</span>
-                <span class="label-agree">非常符合</span>
-              </div>
-
-              <div class="likert-options" id="likertOptions">
-                <button class="likert-btn btn-neg-3" data-val="-3" onclick="app.selectAnswer(-3)">
-                  <span class="likert-circle"></span>
-                  <span class="likert-text">极不符合</span>
-                </button>
-                <button class="likert-btn btn-neg-2" data-val="-2" onclick="app.selectAnswer(-2)">
-                  <span class="likert-circle"></span>
-                  <span class="likert-text">较不符合</span>
-                </button>
-                <button class="likert-btn btn-neg-1" data-val="-1" onclick="app.selectAnswer(-1)">
-                  <span class="likert-circle"></span>
-                  <span class="likert-text">微不符合</span>
-                </button>
-                <button class="likert-btn btn-zero" data-val="0" onclick="app.selectAnswer(0)">
-                  <span class="likert-circle"></span>
-                  <span class="likert-text">中立/看情况</span>
-                </button>
-                <button class="likert-btn btn-pos-1" data-val="1" onclick="app.selectAnswer(1)">
-                  <span class="likert-circle"></span>
-                  <span class="likert-text">微符合</span>
-                </button>
-                <button class="likert-btn btn-pos-2" data-val="2" onclick="app.selectAnswer(2)">
-                  <span class="likert-circle"></span>
-                  <span class="likert-text">较符合</span>
-                </button>
-                <button class="likert-btn btn-pos-3" data-val="3" onclick="app.selectAnswer(3)">
-                  <span class="likert-circle"></span>
-                  <span class="likert-text">极符合</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- 翻页控制 -->
-          <div class="q-nav-buttons">
-            <button class="btn btn-outline" id="prevQuestionBtn" onclick="app.prevQuestion()">
-              ← 上一题
-            </button>
-            <button class="btn btn-primary" id="nextQuestionBtn" onclick="app.nextQuestion()">
-              下一题 →
-            </button>
+          <div class="sm-options-list" id="smOptionsList">
+            <!-- 动态生成 4 项选项 -->
           </div>
         </div>
 
-        <!-- 答题卡浮层 Drawer -->
-        <div class="question-drawer hidden" id="questionDrawer">
-          <div class="drawer-header">
-            <h4>题目速览卡</h4>
-            <button class="btn-close" onclick="app.toggleQuestionDrawer()">✕</button>
-          </div>
-          <div class="drawer-legend">
-            <span><i class="legend-dot done"></i> 已回答</span>
-            <span><i class="legend-dot un"></i> 未回答</span>
-            <span><i class="legend-dot cur"></i> 当前题</span>
-          </div>
-          <div class="drawer-grid" id="drawerGrid">
-            <!-- 动态生成按钮 -->
-          </div>
+        <div class="q-nav-buttons">
+          <button class="btn btn-outline" id="smPrevBtn" onclick="app.prevSoulmateQ()">← 上一题</button>
+          <button class="btn btn-primary" id="smNextBtn" onclick="app.nextSoulmateQ()">下一题 →</button>
         </div>
       </div>
 
       <!-- 测评结果报告看板 -->
-      <div class="test-result-box hidden" id="testResultBox">
-        <!-- 动态生成结果内容 -->
+      <div class="test-result-box hidden" id="soulmateResultBox">
+        <!-- 动态生成本命英雄结果报告 -->
       </div>
     </section>
 
-    <!-- ==================== 2. 16型人格全景百科 ==================== -->
-    <section class="section-container" id="sec-encyclopedia">
+    <!-- ==================== 2. 天命分路与战术打法诊断 ==================== -->
+    <section class="section-container" id="sec-tactical">
+      <div class="test-intro-box" id="tacticalIntroBox">
+        <div class="section-header">
+          <span class="section-kicker">LANE & TACTICAL PLAYSTYLE</span>
+          <h2 class="section-title">诊断你在游戏中适合玩哪个英雄与分路</h2>
+          <p class="section-subtitle">
+            上分遇瓶颈？或许你一直在玩不适合你的位置！基于微操手速、大局意识、风险偏好与团队协同，诊断你的天命分路与首选英雄池。
+          </p>
+        </div>
+
+        <div class="soulmate-hero-card-featured" style="border-color: #3b82f6;">
+          <div class="feature-icon">🧭</div>
+          <h3>战术风格与天命分路诊断测验</h3>
+          <div class="mode-meta">
+            <span>⏱️ 约 2-4 分钟</span>
+            <span>📝 游戏战术实战博弈题</span>
+            <span>📊 输出六维战术雷达与英雄池</span>
+          </div>
+          <p>
+            对抗路单挑单带、打野全图抓人控龙、中路法核AOE支援、发育路后期翻盘射手、还是游走指挥定海神针？答案尽在此处！
+          </p>
+          <button class="btn btn-primary btn-large glow-btn" style="background: linear-gradient(135deg, #2563eb, #06b6d4);" onclick="app.startTacticalTest()">
+            🚀 开启战术分路诊断
+          </button>
+        </div>
+      </div>
+
+      <!-- 战术答题界面 -->
+      <div class="test-runner-box hidden" id="tacticalRunnerBox">
+        <div class="test-top-bar">
+          <div class="test-meta-info">
+            <span class="test-mode-tag">战术与分路诊断</span>
+            <span class="test-progress-counter" id="tacProgressCounter">第 1 / 4 题</span>
+          </div>
+          <div class="test-dimension-indicator">
+            <span class="dim-badge" id="tacDimBadge">峡谷战术本能博弈</span>
+          </div>
+          <div class="test-actions">
+            <button class="btn btn-xs btn-ghost" onclick="app.confirmResetTactical()">🔄 重新开始</button>
+          </div>
+        </div>
+
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="tacProgressBarFill" style="width: 25%;"></div>
+        </div>
+
+        <div class="question-card" id="tacQuestionCard">
+          <div class="q-scenario-tag" id="tacScenarioTag">[ 开局节奏决策 ]</div>
+          <h3 class="q-title" id="tacTitle">开局一分钟，你习惯如何规划节奏？</h3>
+          <p class="q-desc" id="tacDesc">刚进入王者峡谷时，你的注意力与第一指令通常是什么？</p>
+
+          <div class="sm-options-list" id="tacOptionsList">
+            <!-- 动态生成战术选项 -->
+          </div>
+        </div>
+
+        <div class="q-nav-buttons">
+          <button class="btn btn-outline" id="tacPrevBtn" onclick="app.prevTacticalQ()">← 上一题</button>
+          <button class="btn btn-primary" id="tacNextBtn" onclick="app.nextTacticalQ()">下一题 →</button>
+        </div>
+      </div>
+
+      <!-- 战术结果展示 -->
+      <div class="test-result-box hidden" id="tacticalResultBox">
+        <!-- 动态生成天命分路诊断报告 -->
+      </div>
+    </section>
+
+    <!-- ==================== 3. 英雄全景资料库 ==================== -->
+    <section class="section-container" id="sec-codex">
       <div class="section-header">
-        <span class="section-kicker">PERSONALITY COMPREHENSIVE ARCHIVE</span>
-        <h2 class="section-title">16 型人格全景档案大百科</h2>
+        <span class="section-kicker">HERO CODEX & SKILL ARCHIVE</span>
+        <h2 class="section-title">全英雄全景档案资料库</h2>
         <p class="section-subtitle">
-          拒绝千篇一律的刻板标签。深入剖析每一种人格的认知功能底层、闪光优势、致命盲区、黑化高压反噬与搞钱成长秘籍。
+          收录30位超人气核心英雄的简单技能拆解、人物背景故事、铭文出装策略、克制关系及对线打法诀窍。
         </p>
       </div>
 
-      <!-- 过滤与搜索栏 -->
-      <div class="filter-toolbar">
-        <div class="temperament-filter-pills" id="temperamentFilterPills">
-          <button class="filter-pill active" data-temp="ALL" onclick="app.filterProfiles('ALL')">全部 16 型</button>
-          <button class="filter-pill nt-pill" data-temp="NT" onclick="app.filterProfiles('NT')">NT 理性者 (4)</button>
-          <button class="filter-pill nf-pill" data-temp="NF" onclick="app.filterProfiles('NF')">NF 理想国 (4)</button>
-          <button class="filter-pill sj-pill" data-temp="SJ" onclick="app.filterProfiles('SJ')">SJ 守卫者 (4)</button>
-          <button class="filter-pill sp-pill" data-temp="SP" onclick="app.filterProfiles('SP')">SP 探险家 (4)</button>
+      <!-- 过滤与分类搜索工具栏 -->
+      <div class="codex-toolbar">
+        <div class="filter-group">
+          <label class="filter-label">职业分类：</label>
+          <div class="pills-row" id="rolePills">
+            <button class="filter-pill active" data-role="ALL" onclick="app.setRoleFilter('ALL')">全部职业</button>
+            <button class="filter-pill" data-role="assassin" onclick="app.setRoleFilter('assassin')">🗡️ 刺客</button>
+            <button class="filter-pill" data-role="mage" onclick="app.setRoleFilter('mage')">🔮 法师</button>
+            <button class="filter-pill" data-role="marksman" onclick="app.setRoleFilter('marksman')">🏹 射手</button>
+            <button class="filter-pill" data-role="fighter" onclick="app.setRoleFilter('fighter')">⚔️ 战士</button>
+            <button class="filter-pill" data-role="tank" onclick="app.setRoleFilter('tank')">🛡️ 坦克</button>
+            <button class="filter-pill" data-role="support" onclick="app.setRoleFilter('support')">🕊️ 辅助</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">主战分路：</label>
+          <div class="pills-row" id="lanePills">
+            <button class="filter-pill active" data-lane="ALL" onclick="app.setLaneFilter('ALL')">全部分路</button>
+            <button class="filter-pill" data-lane="clash" onclick="app.setLaneFilter('clash')">⛰️ 对抗路</button>
+            <button class="filter-pill" data-lane="jungle" onclick="app.setLaneFilter('jungle')">🌲 打野</button>
+            <button class="filter-pill" data-lane="mid" onclick="app.setLaneFilter('mid')">⚡ 中路</button>
+            <button class="filter-pill" data-lane="farm" onclick="app.setLaneFilter('farm')">💰 发育路</button>
+            <button class="filter-pill" data-lane="roam" onclick="app.setLaneFilter('roam')">🧭 游走</button>
+          </div>
         </div>
 
         <div class="search-input-wrap">
           <span class="search-icon">🔍</span>
-          <input type="text" id="profileSearchInput" placeholder="输入代码 (如 INTJ)、名称 (建筑师) 或特质关键词..." oninput="app.searchProfiles(this.value)">
-          <button class="clear-search-btn hidden" id="clearSearchBtn" onclick="app.clearProfileSearch()">✕</button>
+          <input type="text" id="heroSearchInput" placeholder="搜索英雄名字 (如 李白)、称号 (剑仙) 或技能关键词..." oninput="app.searchHero(this.value)">
+          <button class="clear-search-btn hidden" id="clearSearchBtn" onclick="app.clearHeroSearch()">✕</button>
         </div>
       </div>
 
-      <!-- 16型人格卡片网格 -->
-      <div class="profiles-grid" id="profilesGrid">
-        <!-- 动态渲染 16 张大卡片 -->
+      <!-- 英雄卡片展示网格 -->
+      <div class="heroes-grid" id="heroesGrid">
+        <!-- 动态渲染 30 位英雄卡片 -->
       </div>
     </section>
 
-    <!-- ==================== 3. 16×16 全关系契合大矩阵 ==================== -->
-    <section class="section-container" id="sec-matrix">
+    <!-- ==================== 4. 搭档羁绊大矩阵 ==================== -->
+    <section class="section-container" id="sec-synergy">
       <div class="section-header">
-        <span class="section-kicker">COMPATIBILITY MATRIX 16×16</span>
-        <h2 class="section-title">16×16 MBTI 全关系契合度大矩阵</h2>
+        <span class="section-kicker">HERO SYNERGY & DUO CODEX</span>
+        <h2 class="section-title">经典搭档关系图谱与羁绊大矩阵</h2>
         <p class="section-subtitle">
-          全网最详尽的 256 组人格关系全景交互表！无论是神仙眷侣、强强联手，还是相爱相杀修罗场，一览无余。
+          官方情侣 CP、战术上分组合（真香组合、森马流、父子流、乔夫组合、风火燎原、绝代双雄）全景收录！
         </p>
       </div>
 
-      <!-- 矩阵控制工具栏 -->
-      <div class="matrix-toolbar">
-        <!-- 视角切换 -->
-        <div class="view-mode-tabs">
-          <button class="view-tab-btn active" id="btnMatrixAll" onclick="app.switchMatrixView('grid')">
-            🌐 16×16 全景总表
-          </button>
-          <button class="view-tab-btn" id="btnMatrixPerspective" onclick="app.switchMatrixView('perspective')">
-            👤 个人专属关系榜单
-          </button>
-        </div>
-
-        <!-- 专属视角选择器 -->
-        <div class="perspective-select-wrap hidden" id="perspectiveSelectWrap">
-          <label>选择以谁为主视角：</label>
-          <select id="perspectiveTypeSelect" onchange="app.renderPerspectiveList(this.value)">
-            <!-- 16型选项 -->
-          </select>
-        </div>
-
-        <!-- 契合层级图例与过滤 -->
-        <div class="matrix-legend">
-          <span class="legend-badge tier-1" onclick="app.filterMatrixTier(1)" title="点击过滤此层级">💖 黄金天配 (94+)</span>
-          <span class="legend-badge tier-2" onclick="app.filterMatrixTier(2)" title="点击过滤此层级">🌟 优势互补 (85-93)</span>
-          <span class="legend-badge tier-3" onclick="app.filterMatrixTier(3)" title="点击过滤此层级">🤝 温和默契 (75-84)</span>
-          <span class="legend-badge tier-4" onclick="app.filterMatrixTier(4)" title="点击过滤此层级">⚡ 磨合修行 (68-74)</span>
-          <span class="legend-badge tier-5" onclick="app.filterMatrixTier(5)" title="点击过滤此层级">❄️ 认知异星 (&lt;68)</span>
-          <button class="btn btn-xs btn-ghost" id="resetMatrixFilterBtn" onclick="app.resetMatrixTierFilter()" style="display:none;">重置过滤</button>
-        </div>
+      <!-- 分类图例与过滤 -->
+      <div class="synergy-category-pills">
+        <button class="filter-pill active" data-cat="ALL" onclick="app.filterSynergy('ALL')">全部搭档关系</button>
+        <button class="filter-pill" data-cat="ranked_gold" onclick="app.filterSynergy('ranked_gold')">🏆 排位T0上分神套路</button>
+        <button class="filter-pill" data-cat="couple_roam" onclick="app.filterSynergy('couple_roam')">💘 峡谷高甜情侣连体</button>
+        <button class="filter-pill" data-cat="couple_lore" onclick="app.filterSynergy('couple_lore')">📜 经典宿命情侣羁绊</button>
+        <button class="filter-pill" data-cat="rival" onclick="app.filterSynergy('rival')">⚔️ 亦敌亦友宿命双雄</button>
       </div>
 
-      <!-- 矩阵展示区 -->
-      <div class="matrix-display-container">
-        <!-- 视图 1：16x16 全景网格 -->
-        <div class="matrix-table-wrap" id="matrixTableWrap">
-          <div class="matrix-scroll-hint">👉 横向滑动查看完整 16 列 · 点击任意单元格查看深度速览</div>
-          <table class="mbti-matrix-table" id="mbtiMatrixTable">
-            <!-- 动态渲染 17x17 矩阵 -->
-          </table>
-        </div>
-
-        <!-- 视图 2：个人专属排行榜 -->
-        <div class="perspective-view-wrap hidden" id="perspectiveViewWrap">
-          <div class="perspective-hero" id="perspectiveHero">
-            <!-- 头部概览 -->
-          </div>
-          <div class="perspective-ranks-grid" id="perspectiveRanksGrid">
-            <!-- 15种关系排序卡片 -->
-          </div>
-        </div>
-      </div>
-
-      <!-- 矩阵点击后的快捷迷你弹窗 / 卡片 -->
-      <div class="mini-chemistry-modal hidden" id="miniChemistryModal">
-        <div class="mini-modal-content">
-          <button class="btn-close" onclick="app.closeMiniChemistryModal()">✕</button>
-          <div id="miniChemistryBody">
-            <!-- 动态内容 -->
-          </div>
-        </div>
+      <!-- 搭档展示大网格 -->
+      <div class="synergy-cards-grid" id="synergyCardsGrid">
+        <!-- 动态渲染经典组合 -->
       </div>
     </section>
 
-    <!-- ==================== 4. 组合动力学生成器 ==================== -->
+    <!-- ==================== 5. 排位开黑动力学生成器 ==================== -->
     <section class="section-container" id="sec-generator">
       <div class="section-header">
-        <span class="section-kicker">RELATIONSHIP DYNAMICS GENERATOR</span>
-        <h2 class="section-title">专属 MBTI 关系动力学生成器</h2>
+        <span class="section-kicker">DUO DYNAMICS GENERATOR</span>
+        <h2 class="section-title">专属排位开黑战术动力学生成器</h2>
         <p class="section-subtitle">
-          选择任意两种人格与关系场景（情侣、合伙人、闺蜜、室友），即刻生成专属深度心理动力学研判报告！
+          自由选择任意两位英雄与排位场景，即刻生成专属深度战斗协同报告、技能配合连招与避坑克制死穴！
         </p>
       </div>
 
       <!-- 组合配置工作台 -->
       <div class="generator-workbench">
         <div class="pair-selector-row">
-          <!-- 甲方 Person A -->
+          <!-- 英雄 1 (一号位) -->
           <div class="selector-card person-a-card">
             <div class="selector-header">
-              <span class="person-tag">一方人格 (Person A)</span>
-              <button class="btn btn-xs btn-outline" id="importMyTypeBtn" onclick="app.importUserTypeToA()" title="填入我的测评结果">
-                导入我的MBTI
+              <span class="person-tag">先手选择英雄 (Hero 1)</span>
+              <button class="btn btn-xs btn-outline" onclick="app.importMyHeroTo1()" title="填入我的本命英雄">
+                导入我的本命英雄
               </button>
             </div>
-            <div class="mbti-picker" id="pickerA">
-              <!-- 下拉或网格 -->
-              <select id="selectTypeA" onchange="app.onTypeAChange(this.value)">
-                <!-- 16型选项 -->
+            <div class="mbti-picker">
+              <select id="selectHero1" onchange="app.onHero1Change(this.value)">
+                <!-- 英雄选项 -->
               </select>
             </div>
-            <div class="person-preview" id="previewA">
-              <!-- 预览小卡 -->
+            <div class="person-preview" id="previewHero1">
+              <!-- 英雄预览 -->
             </div>
           </div>
 
-          <!-- 中间连接器与场景选择 -->
+          <!-- 中间连接器与场景定义 -->
           <div class="relation-hub-card">
             <div class="hub-icon-wrap">
               <span class="hub-symbol">⚡</span>
             </div>
-            
+
             <div class="scenario-selector-wrap">
-              <label class="scenario-label">关系场景定义：</label>
+              <label class="scenario-label">开黑战术场景定义：</label>
               <div class="scenario-buttons-grid" id="scenarioButtons">
-                <button class="scenario-btn active" data-scenario="couple" onclick="app.setScenario('couple')">
+                <button class="scenario-btn active" data-scen="ranked" onclick="app.setGameScenario('ranked')">
+                  <span class="s-icon">🏆</span>
+                  <span class="s-name">巅峰排位上分</span>
+                </button>
+                <button class="scenario-btn" data-scen="couple" onclick="app.setGameScenario('couple')">
                   <span class="s-icon">💘</span>
-                  <span class="s-name">情侣/伴侣</span>
+                  <span class="s-name">情侣甜蜜连体</span>
                 </button>
-                <button class="scenario-btn" data-scenario="work" onclick="app.setScenario('work')">
-                  <span class="s-icon">💼</span>
-                  <span class="s-name">职场/合伙</span>
+                <button class="scenario-btn" data-scen="jungle_roam" onclick="app.setGameScenario('jungle_roam')">
+                  <span class="s-icon">🌲</span>
+                  <span class="s-name">绝活野辅联动</span>
                 </button>
-                <button class="scenario-btn" data-scenario="friend" onclick="app.setScenario('friend')">
-                  <span class="s-icon">👯</span>
-                  <span class="s-name">知心闺蜜</span>
+                <button class="scenario-btn" data-scen="protect_core" onclick="app.setGameScenario('protect_core')">
+                  <span class="s-icon">🛡️</span>
+                  <span class="s-name">稳健保核推塔</span>
                 </button>
-                <button class="scenario-btn" data-scenario="roommate" onclick="app.setScenario('roommate')">
-                  <span class="s-icon">🏠</span>
-                  <span class="s-name">合租室友</span>
-                </button>
-                <button class="scenario-btn" data-scenario="rival" onclick="app.setScenario('rival')">
-                  <span class="s-icon">⚔️</span>
-                  <span class="s-name">思维对手</span>
+                <button class="scenario-btn" data-scen="trolling" onclick="app.setGameScenario('trolling')">
+                  <span class="s-icon">🎪</span>
+                  <span class="s-name">娱乐搞事黑科技</span>
                 </button>
               </div>
             </div>
 
-            <!-- 操作按钮 -->
             <div class="hub-actions">
-              <button class="btn btn-primary btn-block glow-btn" onclick="app.generateDynamicReport()">
-                ✨ 生成深度动力学报告
+              <button class="btn btn-primary btn-block glow-btn" onclick="app.generateHeroDuoReport()">
+                ✨ 生成深度战术开黑报告
               </button>
-              <button class="btn btn-ghost btn-sm" onclick="app.randomPair()">
-                🎲 随机偶遇一对神仙组合
+              <button class="btn btn-ghost btn-sm" onclick="app.randomHeroPair()">
+                🎲 随机翻牌一对神仙搭档
               </button>
             </div>
           </div>
 
-          <!-- 乙方 Person B -->
+          <!-- 英雄 2 (二号位) -->
           <div class="selector-card person-b-card">
             <div class="selector-header">
-              <span class="person-tag">另一方人格 (Person B)</span>
-              <button class="btn btn-xs btn-outline" onclick="app.pickGoldenForA()" title="自动推荐A的黄金天配">
-                匹配天作之合
+              <span class="person-tag">搭档英雄 (Hero 2)</span>
+              <button class="btn btn-xs btn-outline" onclick="app.pickGoldenPartnerForHero1()" title="自动推荐官方绝配搭档">
+                匹配天选搭档
               </button>
             </div>
-            <div class="mbti-picker" id="pickerB">
-              <select id="selectTypeB" onchange="app.onTypeBChange(this.value)">
-                <!-- 16型选项 -->
+            <div class="mbti-picker">
+              <select id="selectHero2" onchange="app.onHero2Change(this.value)">
+                <!-- 英雄选项 -->
               </select>
             </div>
-            <div class="person-preview" id="previewB">
-              <!-- 预览小卡 -->
+            <div class="person-preview" id="previewHero2">
+              <!-- 英雄预览 -->
             </div>
           </div>
         </div>
 
         <!-- 经典组合快捷传送门 -->
         <div class="classic-presets-bar">
-          <span class="preset-label">🔥 热门经典神仙搭档速查：</span>
+          <span class="preset-label">🔥 经典开黑搭档速查直达：</span>
           <div class="preset-chips">
-            <button class="preset-chip" onclick="app.quickPreset('INTJ', 'ENFP', 'couple')">INTJ × ENFP (深海与风筝)</button>
-            <button class="preset-chip" onclick="app.quickPreset('ENTJ', 'INTP', 'work')">ENTJ × INTP (统帅与架构师)</button>
-            <button class="preset-chip" onclick="app.quickPreset('INFJ', 'ENTP', 'couple')">INFJ × ENTP (读心与狂飙)</button>
-            <button class="preset-chip" onclick="app.quickPreset('INFP', 'ENFJ', 'couple')">INFP × ENFJ (解语花与引路人)</button>
-            <button class="preset-chip" onclick="app.quickPreset('ISTJ', 'ESFP', 'couple')">ISTJ × ESFP (磐石与孔雀)</button>
-            <button class="preset-chip" onclick="app.quickPreset('ENTJ', 'ESTJ', 'work')">ENTJ × ESTJ (重装双核引擎)</button>
-            <button class="preset-chip" onclick="app.quickPreset('INFP', 'ESTJ', 'couple')">INFP × ESTJ (欢喜冤家修罗场)</button>
+            <button class="preset-chip" onclick="app.quickDuoPreset('sunshangxiang', 'taiyizhenren')">真香组合 (孙尚香+太乙)</button>
+            <button class="preset-chip" onclick="app.quickDuoPreset('marcopolo', 'yaodeer')">森马组合 (马可+瑶)</button>
+            <button class="preset-chip" onclick="app.quickDuoPreset('luban7', 'lubandashi')">父子护航 (小鲁班+大师)</button>
+            <button class="preset-chip" onclick="app.quickDuoPreset('sunce', 'daqiao')">海潮飞车 (孙策+大乔)</button>
+            <button class="preset-chip" onclick="app.quickDuoPreset('zhugeliang', 'simayi')">绝代双雄 (诸葛亮+司马懿)</button>
+            <button class="preset-chip" onclick="app.quickDuoPreset('lan', 'yaodeer')">鲨鱼鹿灵 (澜+瑶)</button>
+            <button class="preset-chip" onclick="app.quickDuoPreset('lubu', 'diaochan')">魔神与莲华 (吕布+貂蝉)</button>
           </div>
         </div>
       </div>
 
-      <!-- 动态报告输出看板 -->
-      <div class="dynamic-report-container" id="dynamicReportContainer">
-        <!-- 初始或生成后的报告看板 -->
+      <!-- 动态战术报告输出 -->
+      <div class="dynamic-report-container" id="heroDuoReportContainer">
+        <!-- 动态生成报告 -->
       </div>
     </section>
 
-    <!-- ==================== 5. 人格双人对比台 ==================== -->
+    <!-- ==================== 6. 英雄对抗天平 (Hero VS) ==================== -->
     <section class="section-container" id="sec-comparator">
       <div class="section-header">
-        <span class="section-kicker">SIDE-BY-SIDE COMPARATOR</span>
-        <h2 class="section-title">人格双人对比台</h2>
+        <span class="section-kicker">HERO COUNTER & VS ARENA</span>
+        <h2 class="section-title">英雄克制与对决天平</h2>
         <p class="section-subtitle">
-          将任意两款 MBTI 放在同一天平上，直观对照认知八维栈、思维模式、处事优缺点及应对压力的根本异同。
+          将任意两位英雄放在天平两端，对比技能机制、爆发周期、克制弱点与胜负分水岭！
         </p>
       </div>
 
       <div class="comparator-controls">
         <div class="compare-selector">
-          <label>左侧人格：</label>
-          <select id="compareSelect1" onchange="app.renderComparison()">
-            <!-- 16型 -->
+          <label>红方英雄 (Red Side)：</label>
+          <select id="vsSelect1" onchange="app.renderHeroComparison()">
+            <!-- 英雄选项 -->
           </select>
         </div>
-        <div class="compare-vs">VS</div>
+        <div class="compare-vs">⚔️ VS ⚔️</div>
         <div class="compare-selector">
-          <label>右侧人格：</label>
-          <select id="compareSelect2" onchange="app.renderComparison()">
-            <!-- 16型 -->
+          <label>蓝方英雄 (Blue Side)：</label>
+          <select id="vsSelect2" onchange="app.renderHeroComparison()">
+            <!-- 英雄选项 -->
           </select>
         </div>
       </div>
 
-      <div class="comparison-table-wrap" id="comparisonTableWrap">
-        <!-- 动态生成对比表格 -->
+      <div class="comparison-table-wrap" id="vsTableWrap">
+        <!-- 动态生成对决天平 -->
       </div>
     </section>
 
@@ -592,23 +537,23 @@
 
   <!-- ==================== 全局弹窗 / 模态框 ==================== -->
 
-  <!-- 16型人格详尽档案弹窗 -->
-  <div class="modal-backdrop hidden" id="profileModalBackdrop" onclick="app.closeProfileModal(event)">
-    <div class="profile-modal" id="profileModal" onclick="event.stopPropagation()">
-      <button class="modal-close-btn" onclick="app.closeProfileModal()">✕</button>
-      <div class="profile-modal-body" id="profileModalBody">
-        <!-- 动态注入详尽档案 -->
+  <!-- 英雄深度档案模态框 -->
+  <div class="modal-backdrop hidden" id="heroModalBackdrop" onclick="app.closeHeroModal(event)">
+    <div class="hero-modal" id="heroModal" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="app.closeHeroModal()">✕</button>
+      <div class="hero-modal-body" id="heroModalBody">
+        <!-- 动态注入英雄详尽资料 -->
       </div>
     </div>
   </div>
 
-  <!-- 结果卡片导出分享弹窗 -->
+  <!-- 分享长图导出弹窗 -->
   <div class="modal-backdrop hidden" id="shareCardModalBackdrop" onclick="app.closeShareModal(event)">
     <div class="share-card-modal" onclick="event.stopPropagation()">
       <button class="modal-close-btn" onclick="app.closeShareModal()">✕</button>
       <div class="share-modal-header">
-        <h3>🖼️ 您的 MBTI 专属人格诊断卡</h3>
-        <p>长按或右键可直接保存图片，也可以一键复制文本报告</p>
+        <h3>🖼️ 您的王者荣耀专属本命英雄认证卡</h3>
+        <p>长按或右键直接保存图片，也可一键复制文本分享到开黑群！</p>
       </div>
       <div class="canvas-preview-wrap">
         <canvas id="shareCanvas" width="800" height="1100"></canvas>
@@ -618,7 +563,7 @@
           💾 下载高清长图
         </button>
         <button class="btn btn-outline" onclick="app.copyReportText()">
-          📋 复制文本诊断报告
+          📋 复制认证文本
         </button>
       </div>
     </div>
@@ -626,28 +571,29 @@
 
   <!-- 全局 Toast 提示 -->
   <div class="toast-notification" id="toastNotification">
-    <span id="toastMessage">已成功复制</span>
+    <span id="toastMessage">已成功记录</span>
   </div>
 
   <!-- 页脚 Footer -->
   <footer class="app-footer">
     <div class="footer-content">
       <div class="footer-brand">
-        <span class="footer-logo">🔮</span>
-        <span>MBTI 深度探索航标 · 心理学与人际动力学实验室</span>
+        <span class="footer-logo">⚔️</span>
+        <span>王者荣耀 · 英雄图鉴与开黑动力学实验室</span>
       </div>
       <p class="footer-disclaimer">
-        基于瑞士心理学家卡尔·荣格（Carl Gustav Jung）心理类型学与迈尔斯-布里格斯理论（MBTI）构建。
-        本测试与分析旨在促进自我觉察与人际理解，不作任何临床心理学医疗诊断。每个生命皆独一无二，请在尊重真实自我中自由生长。
+        本站基于《王者荣耀》游戏英雄背景故事、技能机制设定与竞技对战数据精心研发。
+        所有游戏角色肖像、阵营、台词及相关商标版权归腾讯互娱天美工作室群所有。
+        本网站为非官方玩家社群交流与开黑助手工具，旨在增进对英雄机制的理解与游戏乐趣。
       </p>
       <div class="footer-links">
-        <a href="#sec-test" onclick="app.switchTab('test')">开始测试</a>
+        <a href="#sec-soulmate" onclick="app.switchTab('soulmate')">本命英雄测算</a>
         <span>·</span>
-        <a href="#sec-encyclopedia" onclick="app.switchTab('encyclopedia')">16型百科</a>
+        <a href="#sec-tactical" onclick="app.switchTab('tactical')">分路诊断</a>
         <span>·</span>
-        <a href="#sec-matrix" onclick="app.switchTab('matrix')">契合度矩阵</a>
+        <a href="#sec-codex" onclick="app.switchTab('codex')">全英雄资料库</a>
         <span>·</span>
-        <a href="#sec-generator" onclick="app.switchTab('generator')">组合生成器</a>
+        <a href="#sec-synergy" onclick="app.switchTab('synergy')">开黑搭档矩阵</a>
       </div>
     </div>
   </footer>
